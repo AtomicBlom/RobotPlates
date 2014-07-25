@@ -5,6 +5,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import net.binaryvibrance.robotplates.commands.DebugCommand;
 import net.binaryvibrance.robotplates.init.ModBlocks;
 import net.binaryvibrance.robotplates.init.ModItems;
 import net.binaryvibrance.robotplates.proxy.IProxy;
@@ -34,11 +36,19 @@ public class RobotPlates {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		proxy.registerTileEntities();
+		proxy.initRenderingAndTextures();
+
 		LogHelper.info("Initialization Complete");
 	}
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 		LogHelper.info("Initialization Complete");
+	}
+
+	@Mod.EventHandler
+	public void serverLoad(FMLServerStartingEvent event) {
+		event.registerServerCommand(new DebugCommand());
 	}
 }

@@ -1,6 +1,5 @@
 package net.binaryvibrance.robotplates.creativetab;
 
-import net.binaryvibrance.robotplates.init.ModBlocks;
 import net.binaryvibrance.robotplates.init.ModItems;
 import net.binaryvibrance.robotplates.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,7 +13,7 @@ public class CreativeTabRobotPlate {
 
 		@Override
 		public Item getTabIconItem() {
-			return ModItems.dummyItem;
+			return ModItems.remoteDebugger;
 		}
 	};
 }
