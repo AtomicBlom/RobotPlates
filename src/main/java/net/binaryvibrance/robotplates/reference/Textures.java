@@ -10,5 +10,7 @@ public class Textures {
 		private static final String MODEL_TEXTURE_LOCATION = "textures/models/";
 
 		public static final ResourceLocation StartPlate = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "startPlate.png");
+		public static final ResourceLocation ConditionalPlate = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "conditionalPlate.png");
+		public static final ResourceLocation RemoteDebugger = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "remoteDebugger.png") ;
 	}
 }

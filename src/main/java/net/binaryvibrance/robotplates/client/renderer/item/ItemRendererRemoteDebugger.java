@@ -3,6 +3,7 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.binaryvibrance.robotplates.client.renderer.model.ModelRemoteDebugger;
 import net.binaryvibrance.robotplates.client.renderer.model.ModelStartPlate;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.item.ItemStack;
@@ -13,12 +14,12 @@ import org.lwjgl.opengl.GL11;
  * Created by CodeWarrior on 25/07/2014.
  */
 @SideOnly(Side.CLIENT)
-public class ItemRendererStartPlate implements IItemRenderer {
+public class ItemRendererRemoteDebugger implements IItemRenderer {
 
-	public ItemRendererStartPlate() {
-		modelStartPlate = ModelStartPlate.instance();
+	public ItemRendererRemoteDebugger() {
+		modelRemoteDebugger = ModelRemoteDebugger.instance();
 	}
-	private final ModelStartPlate modelStartPlate;
+	private final ModelRemoteDebugger modelRemoteDebugger;
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -66,8 +67,8 @@ public class ItemRendererStartPlate implements IItemRenderer {
 		GL11.glTranslatef(x, y, z);
 		GL11.glRotatef(-90f, 1f, 0, 0);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.StartPlate);
-		modelStartPlate.render();
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.RemoteDebugger);
+		modelRemoteDebugger.render();
 
 		GL11.glPopMatrix();
 	}

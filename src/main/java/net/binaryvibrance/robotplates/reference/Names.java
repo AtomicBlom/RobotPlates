@@ -6,5 +6,6 @@ package net.binaryvibrance.robotplates.reference;
 public final class Names {
 	public static final class Blocks {
 		public static final String START_PLATE = "startPlate";
+		public static final String CONDITIONAL_PLATE = "conditionalPlate";
 	}
 }

@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Level;
 
 /**
  * Created by CodeWarrior on 25/07/2014.
+ * Based on LogHelper from EE3
  */
 public class LogHelper
 {
@@ -75,5 +76,10 @@ public class LogHelper
 	public static void warn(Object object)
 	{
 		log(Level.WARN, object);
+	}
+
+	public static void warn(String format, Object... parameters)
+	{
+		log(Level.WARN, format, parameters);
 	}
 }

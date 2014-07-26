@@ -6,17 +6,17 @@ import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
 /**
- * Created by CodeWarrior on 25/07/2014.
+ * Created by CodeWarrior on 26/07/2014.
  */
-public class ModelStartPlate implements IDebugReloadable {
+public class ModelRemoteDebugger implements IDebugReloadable {
 	private IModelCustom modelStartPlate;
-	private static ModelStartPlate instance;
-	private ModelStartPlate() {
+	private static ModelRemoteDebugger instance;
+	private ModelRemoteDebugger() {
 		reload();
 	}
 
 	public void reload() {
-		modelStartPlate = AdvancedModelLoader.loadModel(Models.START_PLATE);
+		modelStartPlate = AdvancedModelLoader.loadModel(Models.REMOTE_DEBUGGER);
 	}
 
 	public void render() {
@@ -26,7 +26,7 @@ public class ModelStartPlate implements IDebugReloadable {
 		modelStartPlate.renderPart("Cube");
 	}
 
-	public static ModelStartPlate instance() {
-		return (instance != null ? instance : (instance = new ModelStartPlate()));
+	public static ModelRemoteDebugger instance() {
+		return (instance != null ? instance : (instance = new ModelRemoteDebugger()));
 	}
 }

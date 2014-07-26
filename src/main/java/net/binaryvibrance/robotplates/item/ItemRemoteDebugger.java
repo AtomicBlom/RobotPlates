@@ -7,7 +7,7 @@ public class ItemRemoteDebugger extends ItemRobotPlate {
 	public ItemRemoteDebugger()
 	{
 		super();
-		this.setUnlocalizedName("dummy");
+		this.setUnlocalizedName("remoteDebugger");
 	}
 
 }
