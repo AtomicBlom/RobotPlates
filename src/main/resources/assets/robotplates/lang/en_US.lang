@@ -1,0 +1,11 @@
+#Items
+#item.robotplates:conditionalPlate.name=Conditional Plate
+#item.robotplates:startPlate.name=Start Plate
+item.robotplates:remoteDebugger.name=Remote Debugger
+
+#Creative Tabs
+itemGroup.robotplates=Robot Plates
+
+#Blocks
+tile.robotplates:conditionalPlate.name=Conditional Plate
+tile.robotplates:startPlate.name=Start Plate
