@@ -51,7 +51,7 @@ public class ItemRendererStartPlate implements IItemRenderer {
 			}
 			case INVENTORY:
 			{
-				render(-1.0F, -0.9F, 0.0F);
+				render(-0.5F, -0.9F, 0.0F);
 				return;
 			}
 			default:
@@ -62,9 +62,8 @@ public class ItemRendererStartPlate implements IItemRenderer {
 	private void render(float x, float y, float z) {
 		GL11.glPushMatrix();
 
-		GL11.glScalef(1f, 1f, 1f);
 		GL11.glTranslatef(x, y, z);
-		GL11.glRotatef(-90f, 1f, 0, 0);
+		GL11.glTranslatef(0, 0, -0.5f);
 
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.StartPlate);
 		modelStartPlate.render();

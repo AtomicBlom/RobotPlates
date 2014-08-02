@@ -23,7 +23,7 @@ public class ModelStartPlate implements IDebugReloadable {
 		if (modelStartPlate == null) {
 			reload();
 		}
-		modelStartPlate.renderPart("Cube");
+		modelStartPlate.renderPart("Plate");
 	}
 
 	public static ModelStartPlate instance() {

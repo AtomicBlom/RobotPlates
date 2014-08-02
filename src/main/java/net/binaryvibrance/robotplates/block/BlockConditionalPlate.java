@@ -5,6 +5,8 @@ import net.binaryvibrance.robotplates.tileentity.TileEntityConditionalPlate;
 import net.binaryvibrance.robotplates.tileentity.TileEntityStartPlate;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 

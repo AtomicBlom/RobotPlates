@@ -9,6 +9,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.binaryvibrance.robotplates.commands.DebugCommand;
 import net.binaryvibrance.robotplates.init.ModBlocks;
 import net.binaryvibrance.robotplates.init.ModItems;
+import net.binaryvibrance.robotplates.init.ModPackets;
 import net.binaryvibrance.robotplates.proxy.IProxy;
 import net.binaryvibrance.robotplates.reference.Reference;
 import net.binaryvibrance.robotplates.utility.LogHelper;
@@ -27,7 +28,7 @@ public class RobotPlates {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-
+		ModPackets.init();
 		ModItems.init();
 		ModBlocks.init();
 		LogHelper.info("Pre Initialization Complete");

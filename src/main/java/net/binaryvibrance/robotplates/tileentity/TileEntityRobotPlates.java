@@ -1,6 +1,10 @@
 package net.binaryvibrance.robotplates.tileentity;
 
+import net.binaryvibrance.robotplates.init.ModPackets;
+import net.binaryvibrance.robotplates.network.MessageTileEntityRobotPlates;
+import net.binaryvibrance.robotplates.reference.Names;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -15,7 +19,7 @@ public abstract class TileEntityRobotPlates extends TileEntity {
 
 	public TileEntityRobotPlates()
 	{
-		orientation = ForgeDirection.SOUTH;
+		orientation = ForgeDirection.NORTH;
 		state = 0;
 		customName = "";
 		owner = "";
@@ -66,14 +70,15 @@ public abstract class TileEntityRobotPlates extends TileEntity {
 		this.owner = owner;
 	}
 
-	/*@Override
+	@Override
 	public void readFromNBT(NBTTagCompound nbtTagCompound)
 	{
 		super.readFromNBT(nbtTagCompound);
 
 		if (nbtTagCompound.hasKey(Names.NBT.DIRECTION))
 		{
-			this.orientation = ForgeDirection.getOrientation(nbtTagCompound.getByte(Names.NBT.DIRECTION));
+			byte aByte = nbtTagCompound.getByte(Names.NBT.DIRECTION);
+			this.orientation = ForgeDirection.getOrientation(aByte);
 		}
 
 		if (nbtTagCompound.hasKey(Names.NBT.STATE))
@@ -109,7 +114,7 @@ public abstract class TileEntityRobotPlates extends TileEntity {
 		{
 			nbtTagCompound.setString(Names.NBT.OWNER, owner);
 		}
-	}*/
+	}
 
 	public boolean hasCustomName()
 	{
@@ -121,10 +126,10 @@ public abstract class TileEntityRobotPlates extends TileEntity {
 		return owner != null && owner.length() > 0;
 	}
 
-	/*@Override
+	@Override
 	public Packet getDescriptionPacket()
 	{
-		//return PacketHandler.INSTANCE.getPacketFrom(new MessageTileEntityEE(this));
-	}*/
+		return ModPackets.NETWORK.getPacketFrom(new MessageTileEntityRobotPlates(this));
+	}
 
 }

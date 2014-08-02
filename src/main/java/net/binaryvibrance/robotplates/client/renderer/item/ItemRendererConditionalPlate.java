@@ -42,7 +42,7 @@ public class ItemRendererConditionalPlate implements IItemRenderer {
 			}
 			case EQUIPPED:
 			{
-				render(0.0F, 0.5F, 1.0F);
+				render(0.0F, 0.0F, 1.0F);
 				return;
 			}
 			case EQUIPPED_FIRST_PERSON:
@@ -63,10 +63,8 @@ public class ItemRendererConditionalPlate implements IItemRenderer {
 	private void render(float x, float y, float z) {
 		GL11.glPushMatrix();
 
-		//GL11.glScalef(1f, 1f, 1f);
 		GL11.glTranslatef(x, y, z);
 		GL11.glTranslatef(0, 0, -0.5f);
-		//GL11.glRotatef(-90f, 1f, 0, 0);
 
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ConditionalPlate);
 		model.render();

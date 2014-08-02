@@ -26,7 +26,8 @@ public class ModelConditionalPlate implements IDebugReloadable {
 		if (model == null) {
 			reload();
 		}
-		model.renderPart("Plate_Cube.002");
+		model.renderPart("Plate");
+		model.renderPart("Powered_North");
 	}
 
 	public static ModelConditionalPlate instance() {
