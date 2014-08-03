@@ -1,0 +1,50 @@
+package net.binaryvibrance.robotplates.programming.instructions.action;
+
+import net.binaryvibrance.robotplates.programming.instructions.*;
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class ActionSetContainerValue implements IInstruction, IUseContainer, IHaveSuccessAndFailInstructions {
+
+	private final List<IInstruction> successInstructions;
+	private final List<IInstruction> failInstructions;
+	private IContainer container;
+
+	public ActionSetContainerValue() {
+		successInstructions = new LinkedList<IInstruction>();
+		failInstructions = new LinkedList<IInstruction>();
+	}
+
+	@Override
+	public void setContainer(IContainer container) {
+		this.container = container;
+	}
+
+	@Override
+	public List<IInstruction> execute(ProgramState state) {
+		boolean success = false;
+
+		try {
+			Class containerType = container.getType();
+			if (state.hasState(containerType)) {
+				Object value = state.getState(containerType);
+				container.setValue(value);
+				success = true;
+			}
+		} catch (Exception e) {
+		}
+
+		return success ? successInstructions : failInstructions;
+	}
+
+	@Override
+	public void addSuccessInstruction(IInstruction instruction) {
+		successInstructions.add(instruction);
+	}
+
+	@Override
+	public void addFailInstruction(IInstruction instruction) {
+		failInstructions.add(instruction);
+	}
+}

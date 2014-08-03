@@ -10,6 +10,7 @@ import net.binaryvibrance.robotplates.reference.Reference;
 public final class ModBlocks {
 	public static final BlockRobotPlate startPlate = new BlockStartPlate();
 	public static final BlockRobotPlate conditionalPlate = new BlockConditionalPlate();
+
 	private ModBlocks() {
 	}
 

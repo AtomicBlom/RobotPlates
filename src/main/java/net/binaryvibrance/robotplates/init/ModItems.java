@@ -8,6 +8,7 @@ import net.binaryvibrance.robotplates.item.ItemRobotPlate;
 public final class ModItems {
 	public static final ItemRobotPlate remoteDebugger = new ItemRemoteDebugger();
 	public static final ItemRobot robot = new ItemRobot();
+
 	private ModItems() {
 	}
 
