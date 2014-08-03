@@ -1,22 +1,14 @@
 package net.binaryvibrance.robotplates.commands;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import net.binaryvibrance.robotplates.RobotPlates;
-import net.binaryvibrance.robotplates.client.renderer.model.ModelStartPlate;
-import net.binaryvibrance.robotplates.reference.Textures;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.binaryvibrance.robotplates.utility.LogHelper;
-import net.minecraft.client.resources.IResource;
-import net.minecraft.client.resources.SimpleResource;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 
-import java.io.IOException;
-import java.lang.instrument.Instrumentation;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -24,6 +16,8 @@ import java.util.List;
 import java.util.Vector;
 
 public class DebugCommand extends CommandBase {
+	public List<IDebugReloadable> reloadableTypes;
+
 	@Override
 	public String getCommandName() {
 		return "bvreload";
@@ -33,8 +27,6 @@ public class DebugCommand extends CommandBase {
 	public String getCommandUsage(ICommandSender commandSender) {
 		return "bvreload";
 	}
-
-	public List<IDebugReloadable> reloadableTypes;
 
 	@Override
 	public void processCommand(ICommandSender commandSender, String[] arguments) {
@@ -47,7 +39,7 @@ public class DebugCommand extends CommandBase {
 		}
 
 		if (commandSender instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer)commandSender;
+			EntityPlayer player = (EntityPlayer) commandSender;
 			player.addChatComponentMessage(new ChatComponentText("Debug command executed"));
 		}
 	}

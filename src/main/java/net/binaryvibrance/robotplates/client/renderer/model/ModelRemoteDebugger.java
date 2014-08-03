@@ -6,10 +6,15 @@ import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
 public class ModelRemoteDebugger implements IDebugReloadable {
-	private IModelCustom modelStartPlate;
 	private static ModelRemoteDebugger instance;
+	private IModelCustom modelStartPlate;
+
 	private ModelRemoteDebugger() {
 		reload();
+	}
+
+	public static ModelRemoteDebugger instance() {
+		return (instance != null ? instance : (instance = new ModelRemoteDebugger()));
 	}
 
 	public void reload() {
@@ -21,9 +26,5 @@ public class ModelRemoteDebugger implements IDebugReloadable {
 			reload();
 		}
 		modelStartPlate.renderPart("Cube");
-	}
-
-	public static ModelRemoteDebugger instance() {
-		return (instance != null ? instance : (instance = new ModelRemoteDebugger()));
 	}
 }

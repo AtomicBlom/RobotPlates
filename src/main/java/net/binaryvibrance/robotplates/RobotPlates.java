@@ -12,7 +12,7 @@ import net.binaryvibrance.robotplates.proxy.IProxy;
 import net.binaryvibrance.robotplates.reference.Reference;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 
-@Mod(modid = Reference.MOD_ID, name=Reference.MOD_NAME, version = Reference.VERSION)
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class RobotPlates {
 	@Mod.Instance(Reference.MOD_ID)
 	public static RobotPlates instance;
@@ -21,8 +21,7 @@ public class RobotPlates {
 	public static IProxy proxy;
 
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event)
-	{
+	public void preInit(FMLPreInitializationEvent event) {
 		ModPackets.init();
 		ModItems.init();
 		ModBlocks.init();
@@ -32,16 +31,15 @@ public class RobotPlates {
 	}
 
 	@Mod.EventHandler
-	public void init(FMLInitializationEvent event)
-	{
+	public void init(FMLInitializationEvent event) {
 		proxy.registerTileEntities();
 		proxy.initRenderingAndTextures();
 
 		LogHelper.info("Initialization Complete");
 	}
+
 	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event)
-	{
+	public void postInit(FMLPostInitializationEvent event) {
 		LogHelper.info("Initialization Complete");
 	}
 

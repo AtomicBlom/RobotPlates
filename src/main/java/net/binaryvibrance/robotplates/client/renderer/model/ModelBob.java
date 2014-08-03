@@ -8,10 +8,15 @@ import net.binaryvibrance.robotplates.utility.modelLoading.AdvWavefrontObject;
 import net.minecraftforge.client.model.IModelCustom;
 
 public class ModelBob implements IDebugReloadable {
-	private IModelCustom model;
 	private static ModelBob instance;
+	private IModelCustom model;
+
 	private ModelBob() {
 		reload();
+	}
+
+	public static ModelBob instance() {
+		return (instance != null ? instance : (instance = new ModelBob()));
 	}
 
 	public void reload() {
@@ -30,9 +35,5 @@ public class ModelBob implements IDebugReloadable {
 		model.renderPart("Wheel_Front_Right");
 		model.renderPart("Wheel_Back_Left");
 		model.renderPart("Wheel_Back_Right");
-	}
-
-	public static ModelBob instance() {
-		return (instance != null ? instance : (instance = new ModelBob()));
 	}
 }

@@ -2,7 +2,6 @@ package net.binaryvibrance.robotplates.programming.event;
 
 import cpw.mods.fml.common.Mod;
 import net.binaryvibrance.robotplates.entity.BaseRobot;
-import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
 public class EventPlayerInRangeHandler {

@@ -6,10 +6,15 @@ import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
 public class ModelStartPlate implements IDebugReloadable {
-	private IModelCustom modelStartPlate;
 	private static ModelStartPlate instance;
+	private IModelCustom modelStartPlate;
+
 	private ModelStartPlate() {
 		reload();
+	}
+
+	public static ModelStartPlate instance() {
+		return (instance != null ? instance : (instance = new ModelStartPlate()));
 	}
 
 	public void reload() {
@@ -21,9 +26,5 @@ public class ModelStartPlate implements IDebugReloadable {
 			reload();
 		}
 		modelStartPlate.renderPart("Plate");
-	}
-
-	public static ModelStartPlate instance() {
-		return (instance != null ? instance : (instance = new ModelStartPlate()));
 	}
 }

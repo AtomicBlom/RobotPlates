@@ -2,21 +2,17 @@ package net.binaryvibrance.robotplates.block;
 
 import net.binaryvibrance.robotplates.reference.RenderIds;
 import net.binaryvibrance.robotplates.tileentity.TileEntityConditionalPlate;
-import net.binaryvibrance.robotplates.tileentity.TileEntityStartPlate;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 public class BlockConditionalPlate extends BlockRobotPlate implements ITileEntityProvider {
-	public BlockConditionalPlate()
-	{
+	public BlockConditionalPlate() {
 		super(Material.rock);
 		this.setBlockName("conditionalPlate");
 		this.setBlockTextureName("conditionalPlate");
-		this.setBlockBounds(0.00F, 0.0F, 0.00F, 1.00F, (3f/16f), 1.00F);
+		this.setBlockBounds(0.00F, 0.0F, 0.00F, 1.00F, (3f / 16f), 1.00F);
 	}
 
 	@Override

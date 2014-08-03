@@ -3,14 +3,18 @@ package net.binaryvibrance.robotplates.client.renderer.model;
 import net.binaryvibrance.robotplates.reference.Models;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.binaryvibrance.robotplates.utility.modelLoading.AdvWavefrontObject;
-import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
 public class ModelConditionalPlate implements IDebugReloadable {
-	private IModelCustom model;
 	private static ModelConditionalPlate instance;
+	private IModelCustom model;
+
 	private ModelConditionalPlate() {
 		reload();
+	}
+
+	public static ModelConditionalPlate instance() {
+		return (instance != null ? instance : (instance = new ModelConditionalPlate()));
 	}
 
 	public void reload() {
@@ -25,9 +29,5 @@ public class ModelConditionalPlate implements IDebugReloadable {
 		}
 		model.renderPart("Plate");
 		model.renderPart("Powered_North");
-	}
-
-	public static ModelConditionalPlate instance() {
-		return (instance != null ? instance : (instance = new ModelConditionalPlate()));
 	}
 }

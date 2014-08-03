@@ -4,7 +4,6 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.binaryvibrance.robotplates.client.renderer.model.ModelRemoteDebugger;
-import net.binaryvibrance.robotplates.client.renderer.model.ModelStartPlate;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
@@ -13,10 +12,11 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class ItemRendererRemoteDebugger implements IItemRenderer {
 
+	private final ModelRemoteDebugger modelRemoteDebugger;
+
 	public ItemRendererRemoteDebugger() {
 		modelRemoteDebugger = ModelRemoteDebugger.instance();
 	}
-	private final ModelRemoteDebugger modelRemoteDebugger;
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -30,25 +30,20 @@ public class ItemRendererRemoteDebugger implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		switch (type)
-		{
-			case ENTITY:
-			{
+		switch (type) {
+			case ENTITY: {
 				render(-0.5F, -0.38F, 0.5F);
 				return;
 			}
-			case EQUIPPED:
-			{
+			case EQUIPPED: {
 				render(0.0F, 0.0F, 1.0F);
 				return;
 			}
-			case EQUIPPED_FIRST_PERSON:
-			{
+			case EQUIPPED_FIRST_PERSON: {
 				render(0.0F, 0.0F, 1.0F);
 				return;
 			}
-			case INVENTORY:
-			{
+			case INVENTORY: {
 				render(-1.0F, -0.9F, 0.0F);
 				return;
 			}

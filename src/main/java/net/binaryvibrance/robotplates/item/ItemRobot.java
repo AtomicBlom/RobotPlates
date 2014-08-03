@@ -3,7 +3,6 @@ package net.binaryvibrance.robotplates.item;
 import net.binaryvibrance.robotplates.creativetab.CreativeTabRobotPlate;
 import net.binaryvibrance.robotplates.entity.BaseRobot;
 import net.binaryvibrance.robotplates.entity.robot.RobotBob;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

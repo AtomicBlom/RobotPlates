@@ -14,13 +14,11 @@ public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<M
 	public String customName, owner;
 
 	@SuppressWarnings("UnusedDeclaration")
-	public MessageTileEntityRobotPlates()
-	{
+	public MessageTileEntityRobotPlates() {
 	}
 
 	@SuppressWarnings("UnusedDeclaration")
-	public MessageTileEntityRobotPlates(TileEntityRobotPlates tileEntityEE)
-	{
+	public MessageTileEntityRobotPlates(TileEntityRobotPlates tileEntityEE) {
 		this.x = tileEntityEE.xCoord;
 		this.y = tileEntityEE.yCoord;
 		this.z = tileEntityEE.zCoord;
@@ -31,8 +29,7 @@ public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<M
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buf)
-	{
+	public void fromBytes(ByteBuf buf) {
 		this.x = buf.readInt();
 		this.y = buf.readInt();
 		this.z = buf.readInt();
@@ -45,8 +42,7 @@ public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<M
 	}
 
 	@Override
-	public void toBytes(ByteBuf buf)
-	{
+	public void toBytes(ByteBuf buf) {
 		buf.writeInt(x);
 		buf.writeInt(y);
 		buf.writeInt(z);
@@ -59,12 +55,10 @@ public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<M
 	}
 
 	@Override
-	public IMessage onMessage(MessageTileEntityRobotPlates message, MessageContext ctx)
-	{
+	public IMessage onMessage(MessageTileEntityRobotPlates message, MessageContext ctx) {
 		TileEntity untypedTileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.x, message.y, message.z);
 
-		if (untypedTileEntity instanceof TileEntityRobotPlates)
-		{
+		if (untypedTileEntity instanceof TileEntityRobotPlates) {
 
 			TileEntityRobotPlates tileEntity = (TileEntityRobotPlates) untypedTileEntity;
 			tileEntity.setOrientation(message.orientation);
@@ -77,8 +71,7 @@ public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<M
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return String.format("TileEntityRobotPlates - x:%s, y:%s, z:%s, orientation:%s, state:%s, customName:%s, owner:%s", x, y, z, orientation, state, customName, owner);
 	}
 

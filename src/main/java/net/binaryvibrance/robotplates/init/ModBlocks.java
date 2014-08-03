@@ -8,10 +8,10 @@ import net.binaryvibrance.robotplates.reference.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public final class ModBlocks {
-	private ModBlocks() {}
-
 	public static final BlockRobotPlate startPlate = new BlockStartPlate();
 	public static final BlockRobotPlate conditionalPlate = new BlockConditionalPlate();
+	private ModBlocks() {
+	}
 
 	public static void init() {
 		GameRegistry.registerBlock(startPlate, "startPlate");

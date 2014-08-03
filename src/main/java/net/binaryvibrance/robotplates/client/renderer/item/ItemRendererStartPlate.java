@@ -12,10 +12,11 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class ItemRendererStartPlate implements IItemRenderer {
 
+	private final ModelStartPlate modelStartPlate;
+
 	public ItemRendererStartPlate() {
 		modelStartPlate = ModelStartPlate.instance();
 	}
-	private final ModelStartPlate modelStartPlate;
 
 	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -29,25 +30,20 @@ public class ItemRendererStartPlate implements IItemRenderer {
 
 	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		switch (type)
-		{
-			case ENTITY:
-			{
+		switch (type) {
+			case ENTITY: {
 				render(-0.5F, -0.38F, 0.5F);
 				return;
 			}
-			case EQUIPPED:
-			{
+			case EQUIPPED: {
 				render(0.0F, 0.0F, 1.0F);
 				return;
 			}
-			case EQUIPPED_FIRST_PERSON:
-			{
+			case EQUIPPED_FIRST_PERSON: {
 				render(0.0F, 0.0F, 1.0F);
 				return;
 			}
-			case INVENTORY:
-			{
+			case INVENTORY: {
 				render(-0.5F, -0.9F, 0.0F);
 				return;
 			}
