@@ -8,9 +8,6 @@ import io.netty.buffer.ByteBuf;
 import net.binaryvibrance.robotplates.tileentity.TileEntityRobotPlates;
 import net.minecraft.tileentity.TileEntity;
 
-/**
- * Created by CodeWarrior on 1/08/2014.
- */
 public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<MessageTileEntityRobotPlates, IMessage> {
 	public int x, y, z;
 	public byte orientation, state;

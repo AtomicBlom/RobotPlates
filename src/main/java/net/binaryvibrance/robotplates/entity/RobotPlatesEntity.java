@@ -7,9 +7,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-/**
- * Created by CodeWarrior on 2/08/2014.
- */
 public abstract class RobotPlatesEntity extends Entity {
 
 	public RobotPlatesEntity(World world) {

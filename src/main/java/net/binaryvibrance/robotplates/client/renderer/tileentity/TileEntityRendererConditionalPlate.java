@@ -10,9 +10,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class TileEntityRendererConditionalPlate extends TileEntitySpecialRenderer {
 
 	private final ModelConditionalPlate modelConditionalPlate;

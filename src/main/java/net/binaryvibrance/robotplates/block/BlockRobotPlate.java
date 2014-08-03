@@ -21,9 +21,6 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class BlockRobotPlate extends Block {
 	public BlockRobotPlate(Material material)
 	{

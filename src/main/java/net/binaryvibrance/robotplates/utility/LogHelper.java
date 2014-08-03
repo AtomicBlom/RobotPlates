@@ -5,7 +5,6 @@ import net.binaryvibrance.robotplates.reference.Reference;
 import org.apache.logging.log4j.Level;
 
 /**
- * Created by CodeWarrior on 25/07/2014.
  * Based on LogHelper from EE3
  */
 public class LogHelper

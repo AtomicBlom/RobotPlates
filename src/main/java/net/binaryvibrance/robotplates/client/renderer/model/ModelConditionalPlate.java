@@ -6,9 +6,6 @@ import net.binaryvibrance.robotplates.utility.modelLoading.AdvWavefrontObject;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class ModelConditionalPlate implements IDebugReloadable {
 	private IModelCustom model;
 	private static ModelConditionalPlate instance;

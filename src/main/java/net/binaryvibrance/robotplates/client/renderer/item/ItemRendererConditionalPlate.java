@@ -10,9 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 @SideOnly(Side.CLIENT)
 public class ItemRendererConditionalPlate implements IItemRenderer {
 

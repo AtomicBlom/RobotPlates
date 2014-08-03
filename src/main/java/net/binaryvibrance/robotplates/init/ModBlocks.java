@@ -6,9 +6,6 @@ import net.binaryvibrance.robotplates.block.BlockRobotPlate;
 import net.binaryvibrance.robotplates.block.BlockStartPlate;
 import net.binaryvibrance.robotplates.reference.Reference;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public final class ModBlocks {
 	private ModBlocks() {}

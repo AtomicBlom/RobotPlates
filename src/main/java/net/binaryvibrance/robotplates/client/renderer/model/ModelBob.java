@@ -7,9 +7,6 @@ import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.binaryvibrance.robotplates.utility.modelLoading.AdvWavefrontObject;
 import net.minecraftforge.client.model.IModelCustom;
 
-/**
- * Created by CodeWarrior on 3/08/2014.
- */
 public class ModelBob implements IDebugReloadable {
 	private IModelCustom model;
 	private static ModelBob instance;

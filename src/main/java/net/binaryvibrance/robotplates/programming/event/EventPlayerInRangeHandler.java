@@ -5,9 +5,6 @@ import net.binaryvibrance.robotplates.entity.BaseRobot;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
-/**
- * Created by CodeWarrior on 2/08/2014.
- */
 public class EventPlayerInRangeHandler {
 	public EventPlayerInRangeHandler() {
 

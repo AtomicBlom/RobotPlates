@@ -12,9 +12,6 @@ import net.minecraft.util.Facing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-/**
- * Created by CodeWarrior on 2/08/2014.
- */
 public class ItemRobot extends Item {
 
 	public ItemRobot() {

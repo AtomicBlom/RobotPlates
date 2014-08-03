@@ -8,9 +8,6 @@ import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public abstract class TileEntityRobotPlates extends TileEntity {
 	protected ForgeDirection orientation;
 	protected byte state;

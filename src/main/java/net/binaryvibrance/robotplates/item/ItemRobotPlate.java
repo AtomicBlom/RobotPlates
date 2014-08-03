@@ -8,9 +8,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class ItemRobotPlate extends Item {
 	public ItemRobotPlate()
 	{

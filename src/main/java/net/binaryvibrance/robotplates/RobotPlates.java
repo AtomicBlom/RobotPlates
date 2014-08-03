@@ -12,9 +12,6 @@ import net.binaryvibrance.robotplates.proxy.IProxy;
 import net.binaryvibrance.robotplates.reference.Reference;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 @Mod(modid = Reference.MOD_ID, name=Reference.MOD_NAME, version = Reference.VERSION)
 public class RobotPlates {
 	@Mod.Instance(Reference.MOD_ID)

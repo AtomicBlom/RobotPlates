@@ -1,8 +1,5 @@
 package net.binaryvibrance.robotplates.reference;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public abstract class Reference {
 	public static final String MOD_ID = "robotplates";
 	public static final String MOD_NAME = "Robot Plates";

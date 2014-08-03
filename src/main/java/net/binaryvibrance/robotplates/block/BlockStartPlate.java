@@ -7,9 +7,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class BlockStartPlate extends BlockRobotPlate implements ITileEntityProvider {
 	public BlockStartPlate()
 	{

@@ -5,9 +5,6 @@ import net.binaryvibrance.robotplates.item.ItemRemoteDebugger;
 import net.binaryvibrance.robotplates.item.ItemRobot;
 import net.binaryvibrance.robotplates.item.ItemRobotPlate;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public final class ModItems {
 	private ModItems() {}
 

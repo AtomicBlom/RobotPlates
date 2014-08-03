@@ -5,9 +5,6 @@ import net.binaryvibrance.robotplates.reference.Names;
 import net.binaryvibrance.robotplates.tileentity.TileEntityConditionalPlate;
 import net.binaryvibrance.robotplates.tileentity.TileEntityStartPlate;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public abstract class CommonProxy implements IProxy {
 	@Override
 	public void registerTileEntities() {

@@ -6,9 +6,6 @@ import cpw.mods.fml.relauncher.Side;
 import net.binaryvibrance.robotplates.network.MessageTileEntityRobotPlates;
 import net.binaryvibrance.robotplates.reference.Reference;
 
-/**
- * Created by CodeWarrior on 1/08/2014.
- */
 public final class ModPackets {
 	private ModPackets() {}
 

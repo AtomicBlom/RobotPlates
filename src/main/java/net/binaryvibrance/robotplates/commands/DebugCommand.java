@@ -23,9 +23,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
-/**
- * Created by CodeWarrior on 26/07/2014.
- */
 public class DebugCommand extends CommandBase {
 	@Override
 	public String getCommandName() {

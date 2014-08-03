@@ -8,9 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-/**
- * Created by CodeWarrior on 3/08/2014.
- */
 public class RobotBobRenderer extends Render {
 	public static ModelBob modelBob = ModelBob.instance();
 	public void doRender(Entity entity, double posX, double posY, double posZ, float rotationYaw, float rotationPitch) {

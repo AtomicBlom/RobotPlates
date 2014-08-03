@@ -5,9 +5,6 @@ import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-/**
- * Created by CodeWarrior on 26/07/2014.
- */
 public class ModelRemoteDebugger implements IDebugReloadable {
 	private IModelCustom modelStartPlate;
 	private static ModelRemoteDebugger instance;

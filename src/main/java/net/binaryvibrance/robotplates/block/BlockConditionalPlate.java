@@ -10,9 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class BlockConditionalPlate extends BlockRobotPlate implements ITileEntityProvider {
 	public BlockConditionalPlate()
 	{

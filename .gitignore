@@ -20,4 +20,6 @@ hs_err_pid*
 *.ipr
 *.iws
 *.iml
+
+# Modelling
 *.blend1

@@ -17,9 +17,6 @@ import net.binaryvibrance.robotplates.tileentity.TileEntityStartPlate;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-/**
- * Created by CodeWarrior on 25/07/2014.
- */
 public class ClientProxy extends CommonProxy {
 	@Override
 	public void initRenderingAndTextures() {

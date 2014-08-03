@@ -6,9 +6,6 @@ import net.binaryvibrance.robotplates.client.renderer.entity.RobotBobRenderer;
 import net.binaryvibrance.robotplates.entity.robot.RobotBob;
 import net.minecraft.client.renderer.entity.RenderManager;
 
-/**
- * Created by CodeWarrior on 3/08/2014.
- */
 public final class ModEntities {
 	private ModEntities() {}
 
