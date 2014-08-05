@@ -1,17 +1,40 @@
 package net.binaryvibrance.robotplates.programming.instructions.event;
 
-import net.binaryvibrance.robotplates.programming.instructions.*;
+import net.binaryvibrance.robotplates.api.programming.*;
+import net.binaryvibrance.robotplates.programming.eventHandler.TickEventHandler;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 public class EventTick implements IEvent, IHaveInstructions {
 
 	private final List<IInstruction> instructions;
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		EventTick eventTick = (EventTick) o;
+
+		if (!id.equals(eventTick.id)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
+
+	private final UUID id;
 	private ITriggerListener triggerListener;
 
 	public EventTick() {
+
 		instructions = new LinkedList<IInstruction>();
+		id = UUID.randomUUID();
 	}
 
 	@Override
@@ -25,5 +48,21 @@ public class EventTick implements IEvent, IHaveInstructions {
 		this.triggerListener = triggerListener;
 	}
 
+	@Override
+	public Iterable<IInstruction> getInstructions() {
+		return instructions;
+	}
+
+	@Override
+	public void trigger() {
+		if (triggerListener != null) {
+			triggerListener.startEvent(this);
+		}
+	}
+
+	@Override
+	public IEventHandler getHandler() {
+		return TickEventHandler.getInstance();
+	}
 	//FIXME: Trigger event
 }

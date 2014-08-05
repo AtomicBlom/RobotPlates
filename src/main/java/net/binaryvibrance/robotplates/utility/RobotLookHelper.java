@@ -70,23 +70,23 @@ public class RobotLookHelper
 		if (this.isLooking)
 		{
 			this.isLooking = false;
-			double d0 = this.posX - this.entity.posX;
-			double d1 = this.posY - (this.entity.posY + (double)this.entity.getEyeHeight());
-			double d2 = this.posZ - this.entity.posZ;
-			double d3 = (double) MathHelper.sqrt_double(d0 * d0 + d2 * d2);
-			float f = (float)(Math.atan2(d2, d0) * 180.0D / Math.PI) - 90.0F;
-			float f1 = (float)(-(Math.atan2(d1, d3) * 180.0D / Math.PI));
-			this.entity.rotationPitch = this.updateRotation(this.entity.rotationPitch, f1, this.deltaLookPitch);
-			this.entity.rotationYaw = this.updateRotation(this.entity.rotationYaw, f, this.deltaLookYaw);
+			double deltaX = this.posX - this.entity.posX;
+			double deltaY = this.posY - (this.entity.posY + (double)this.entity.getEyeHeight());
+			double deltaZ = this.posZ - this.entity.posZ;
+			double d3 = (double) MathHelper.sqrt_double(deltaX * deltaX + deltaZ * deltaZ);
+			float destinationYawAngle = (float)(Math.atan2(deltaZ, deltaX) * 180.0D / Math.PI) - 90.0F;
+			float destinationPitchAngle = (float)(-(Math.atan2(deltaY, d3) * 180.0D / Math.PI));
+			this.entity.rotationPitch = this.updateRotation(this.entity.rotationPitch, destinationPitchAngle, this.deltaLookPitch);
+			this.entity.rotationYaw = this.updateRotation(this.entity.rotationYaw, destinationYawAngle, this.deltaLookYaw);
 		}
 		else
 		{
-			this.entity.rotationYaw = this.updateRotation(this.entity.rotationYaw, 0, 10.0F);
+			this.entity.rotationYaw = this.updateRotation(this.entity.rotationYaw, 0, 1.0F);
 		}
 
 		float f2 = MathHelper.wrapAngleTo180_float(this.entity.rotationYaw);
 
-		if (f2 < -75.0F)
+		/*if (f2 < -75.0F)
 		{
 			this.entity.rotationYaw = - 75.0F;
 		}
@@ -94,7 +94,7 @@ public class RobotLookHelper
 		if (f2 > 75.0F)
 		{
 			this.entity.rotationYaw = + 75.0F;
-		}
+		}*/
 	}
 
 	private float updateRotation(float angle, float p_75652_2_, float delta)

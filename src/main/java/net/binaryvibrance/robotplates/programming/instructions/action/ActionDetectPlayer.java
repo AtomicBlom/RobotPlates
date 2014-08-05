@@ -1,8 +1,8 @@
 package net.binaryvibrance.robotplates.programming.instructions.action;
 
 import net.binaryvibrance.robotplates.entity.BaseRobot;
-import net.binaryvibrance.robotplates.programming.instructions.IHaveInstructions;
-import net.binaryvibrance.robotplates.programming.instructions.IInstruction;
+import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
+import net.binaryvibrance.robotplates.api.programming.IInstruction;
 import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -57,15 +57,18 @@ public class ActionDetectPlayer implements IInstruction, IHaveInstructions {
 		});
 
 		//FIXME: Correct for square bounding box, verify against sphere.
-		for (Object o : world.getEntitiesWithinAABBExcludingEntity(robot, boundingBox, selector)) {
-			if (o instanceof EntityPlayer) {
-				list.add((EntityPlayer) o);
+		List entities = world.getEntitiesWithinAABBExcludingEntity(robot, boundingBox, selector);
+		if (entities != null) {
+			for (Object o : entities) {
+				if (o instanceof EntityPlayer) {
+					list.add((EntityPlayer) o);
+				}
 			}
 		}
 
 		iterator = list.iterator();
 		if (iterator.hasNext()) {
-			state.setState(iterator.next());
+			state.setState(EntityPlayer.class, iterator.next());
 		} else {
 			state.removeState(EntityPlayer.class);
 		}

@@ -5,6 +5,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.binaryvibrance.robotplates.client.renderer.entity.RobotBobRenderer;
 import net.binaryvibrance.robotplates.client.renderer.item.ItemRendererConditionalPlate;
 import net.binaryvibrance.robotplates.client.renderer.item.ItemRendererRemoteDebugger;
+import net.binaryvibrance.robotplates.client.renderer.item.ItemRendererRobotBob;
 import net.binaryvibrance.robotplates.client.renderer.item.ItemRendererStartPlate;
 import net.binaryvibrance.robotplates.client.renderer.tileentity.TileEntityRendererConditionalPlate;
 import net.binaryvibrance.robotplates.client.renderer.tileentity.TileEntityRendererStartPlate;
@@ -28,6 +29,7 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.startPlate), new ItemRendererStartPlate());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.conditionalPlate), new ItemRendererConditionalPlate());
 		MinecraftForgeClient.registerItemRenderer(ModItems.remoteDebugger, new ItemRendererRemoteDebugger());
+		MinecraftForgeClient.registerItemRenderer(ModItems.robot, new ItemRendererRobotBob());
 
 		//TileEntities
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStartPlate.class, new TileEntityRendererStartPlate());

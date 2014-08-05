@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.instructions;
+package net.binaryvibrance.robotplates.api.programming;
 
 public interface IHaveSuccessAndFailInstructions {
 	void addSuccessInstruction(IInstruction instruction);

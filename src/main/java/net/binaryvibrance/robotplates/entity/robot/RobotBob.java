@@ -4,6 +4,7 @@ import net.binaryvibrance.robotplates.entity.BaseRobot;
 import net.binaryvibrance.robotplates.programming.instructions.Container;
 import net.binaryvibrance.robotplates.programming.instructions.Program;
 import net.binaryvibrance.robotplates.programming.instructions.action.ActionDetectPlayer;
+import net.binaryvibrance.robotplates.programming.instructions.action.ActionGetContainerValue;
 import net.binaryvibrance.robotplates.programming.instructions.action.ActionSetContainerValue;
 import net.binaryvibrance.robotplates.programming.instructions.action.ActionTurnTo;
 import net.binaryvibrance.robotplates.programming.instructions.conditional.ConditionalContainerEmpty;
@@ -18,8 +19,10 @@ public class RobotBob extends BaseRobot {
 	}
 
 	@Override
-	protected void entityInit() {
-		Container<EntityPlayer> trackedPlayerContainer = new Container<EntityPlayer>();
+	protected void OnEntityInitializing() {
+		Program program = getProgram();
+
+		Container<EntityPlayer> trackedPlayerContainer = new Container<EntityPlayer>(EntityPlayer.class);
 
 		//Level 1
 		ConditionalContainerEmpty trackedPlayerEmpty = new ConditionalContainerEmpty();
@@ -39,11 +42,19 @@ public class RobotBob extends BaseRobot {
 		ActionTurnTo turnToAction = new ActionTurnTo();
 
 		setContainerValueAction.addSuccessInstruction(turnToAction);
-		trackedPlayerEmpty.addSuccessInstruction(turnToAction);
+
+		ActionGetContainerValue getContainerValueAction = new ActionGetContainerValue();
+		getContainerValueAction.setContainer(trackedPlayerContainer);
+
+		getContainerValueAction.addInstruction(turnToAction);
+
+		trackedPlayerEmpty.addSuccessInstruction(getContainerValueAction);
 
 		EventTick tickEvent = new EventTick();
 		tickEvent.addInstruction(trackedPlayerEmpty);
 
-		getProgram().AddEvent(tickEvent);
+		program.AddEvent(tickEvent);
+
+		program.start();
 	}
 }

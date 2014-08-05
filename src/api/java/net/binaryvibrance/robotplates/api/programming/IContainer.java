@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.instructions;
+package net.binaryvibrance.robotplates.api.programming;
 
 public interface IContainer {
 	boolean hasValue();
@@ -6,3 +6,4 @@ public interface IContainer {
 	void setValue(Object value);
 	Object getValue();
 }
+

@@ -1,5 +1,8 @@
 package net.binaryvibrance.robotplates.programming.instructions;
 
+import net.binaryvibrance.robotplates.api.programming.IHaveSuccessAndFailInstructions;
+import net.binaryvibrance.robotplates.api.programming.IInstruction;
+
 import java.util.LinkedList;
 import java.util.List;
 

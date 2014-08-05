@@ -13,6 +13,7 @@ public class RobotBobRenderer extends Render {
 		GL11.glPushMatrix();
 
 		GL11.glTranslated(posX, posY, posZ);
+		GL11.glRotatef(entity.rotationYaw, 0f, -1f, 0f);
 		modelBob.render();
 		GL11.glPopMatrix();
 	}

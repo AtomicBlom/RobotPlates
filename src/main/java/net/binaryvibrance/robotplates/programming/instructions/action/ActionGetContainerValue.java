@@ -1,5 +1,9 @@
 package net.binaryvibrance.robotplates.programming.instructions.action;
 
+import net.binaryvibrance.robotplates.api.programming.IContainer;
+import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
+import net.binaryvibrance.robotplates.api.programming.IInstruction;
+import net.binaryvibrance.robotplates.api.programming.IUseContainer;
 import net.binaryvibrance.robotplates.programming.instructions.*;
 
 import java.util.LinkedList;
@@ -22,7 +26,7 @@ public class ActionGetContainerValue implements IInstruction, IHaveInstructions,
 	@Override
 	public List<IInstruction> execute(ProgramState state) {
 		if (container.hasValue()) {
-			state.setState(container.getValue());
+			state.setState(container.getType(), container.getValue());
 		}
 		return instructions;
 	}

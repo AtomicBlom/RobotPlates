@@ -3,23 +3,58 @@ package net.binaryvibrance.robotplates.entity;
 import net.binaryvibrance.robotplates.programming.instructions.Program;
 import net.minecraft.world.World;
 
-public class BaseRobot extends RobotPlatesEntity {
+import java.util.UUID;
 
-	private final Program program = new Program();
+public abstract class BaseRobot extends RobotPlatesEntity {
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+
+		BaseRobot baseRobot = (BaseRobot) o;
+
+		if (!id.equals(baseRobot.id)) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = super.hashCode();
+		result = 31 * result + id.hashCode();
+		return result;
+	}
+
+	private final UUID id;
+	private Program program;
 	private int detectionRange;
 
 	public BaseRobot(World world) {
+		this(world, UUID.randomUUID());
+	}
+	public BaseRobot(World world, UUID id) {
 		super(world);
+		this.id = id;
 	}
 
 	@Override
-	protected void entityInit() {
-
+	protected final void entityInit() {
+		if (!worldObj.isRemote) {
+			this.program = new Program(this);
+			OnEntityInitializing();
+		}
 	}
+
+	protected abstract void OnEntityInitializing();
 
 	@Override
 	public void onUpdate() {
+
 		super.onUpdate();
+		if (!worldObj.isRemote) {
+			program.update();
+		}
 	}
 
 	public int getDetectionRange() {
@@ -35,4 +70,7 @@ public class BaseRobot extends RobotPlatesEntity {
 		return this.program;
 	}
 
+	public UUID getId() {
+		return id;
+	}
 }

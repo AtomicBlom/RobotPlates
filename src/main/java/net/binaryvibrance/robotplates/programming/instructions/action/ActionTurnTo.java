@@ -1,8 +1,8 @@
 package net.binaryvibrance.robotplates.programming.instructions.action;
 
 import net.binaryvibrance.robotplates.entity.BaseRobot;
-import net.binaryvibrance.robotplates.programming.instructions.IHaveInstructions;
-import net.binaryvibrance.robotplates.programming.instructions.IInstruction;
+import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
+import net.binaryvibrance.robotplates.api.programming.IInstruction;
 import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 import net.binaryvibrance.robotplates.utility.RobotLookHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -24,10 +24,18 @@ public class ActionTurnTo implements IInstruction, IHaveInstructions {
 
 		if (player != null) {
 			BaseRobot robot = state.getRobot();
+
+			/*double deltaX = robot.posX - player.posX;
+			double deltaY = robot.posX - player.posY;
+
+			double angle = Math.atan2(deltaY, deltaX) * 180 / Math.PI;
+			if (robot.rotationYaw)*/
+
+
 			if (lookHelper == null) {
 				lookHelper = new RobotLookHelper(robot);
 			}
-			lookHelper.setLookPositionWithEntity(player, 10f, 10f);
+			lookHelper.setLookPositionWithEntity(player, 1f, 1f);
 			lookHelper.onUpdateLook();
 		}
 		return instructions;
