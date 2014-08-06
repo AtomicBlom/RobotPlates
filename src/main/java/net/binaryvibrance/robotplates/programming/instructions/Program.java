@@ -53,7 +53,9 @@ public class Program implements ITriggerListener {
 	}
 
 	public void update() {
-		if (!running) { return; }
+		if (!running) {
+			return;
+		}
 		int allowedInstructions = 500;
 
 		List<InternalProgramState> runningEvents;
@@ -94,6 +96,14 @@ public class Program implements ITriggerListener {
 		private final LinkedList<IInstruction> pendingInstructions = new LinkedList<IInstruction>();
 		private final ProgramState state;
 
+		InternalProgramState(IEvent event, BaseRobot robot) {
+			this.event = event;
+			this.state = new ProgramState(robot);
+			for (IInstruction instruction : event.getInstructions()) {
+				pendingInstructions.addLast(instruction);
+			}
+		}
+
 		@Override
 		public boolean equals(Object o) {
 			if (this == o) return true;
@@ -114,14 +124,6 @@ public class Program implements ITriggerListener {
 			return result;
 		}
 
-		InternalProgramState(IEvent event, BaseRobot robot) {
-			this.event = event;
-			this.state = new ProgramState(robot);
-			for (IInstruction instruction : event.getInstructions()) {
-				pendingInstructions.addLast(instruction);
-			}
-		}
-
 		public IEvent getEvent() {
 			return event;
 		}
@@ -132,7 +134,6 @@ public class Program implements ITriggerListener {
 
 		public void executeOneInstruction() {
 			if (!isFinished()) {
-
 				IInstruction i = pendingInstructions.removeFirst();
 				//LogHelper.info("Executing instruction %s triggered by %s on robot %s", i.getClass().getSimpleName(), event.getClass().getSimpleName(), state.getRobot());
 				Iterable<IInstruction> nextInstructions = i.execute(state);

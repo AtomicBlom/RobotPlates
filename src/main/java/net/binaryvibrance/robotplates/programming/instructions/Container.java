@@ -1,9 +1,7 @@
 package net.binaryvibrance.robotplates.programming.instructions;
 
-import net.binaryvibrance.robotplates.api.programming.IContainer;
 import net.binaryvibrance.robotplates.api.programming.IContainerOfT;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.UUID;
 
 public class Container<T> implements IContainerOfT<T> {
@@ -40,7 +38,7 @@ public class Container<T> implements IContainerOfT<T> {
 	@SuppressWarnings("unchecked")
 	public void setValue(Object value) {
 		try {
-			this.value = (T)value;
+			this.value = (T) value;
 		} catch (Exception e) {
 			//FIXME: Ok, somehow I've managed to pass the wrong type to this method.
 		}

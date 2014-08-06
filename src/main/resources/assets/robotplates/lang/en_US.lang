@@ -2,6 +2,7 @@
 #item.robotplates:conditionalPlate.name=Conditional Plate
 #item.robotplates:startPlate.name=Start Plate
 item.robotplates:remoteDebugger.name=Remote Debugger
+item.robotplates:toolSolderingIron.name=Soldering Iron
 
 #Creative Tabs
 itemGroup.robotplates=Robot Plates

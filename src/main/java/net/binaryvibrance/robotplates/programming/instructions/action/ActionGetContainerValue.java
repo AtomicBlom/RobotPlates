@@ -4,7 +4,7 @@ import net.binaryvibrance.robotplates.api.programming.IContainer;
 import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
 import net.binaryvibrance.robotplates.api.programming.IUseContainer;
-import net.binaryvibrance.robotplates.programming.instructions.*;
+import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 
 import java.util.LinkedList;
 import java.util.List;

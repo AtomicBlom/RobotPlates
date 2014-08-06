@@ -10,6 +10,14 @@ import java.util.UUID;
 public class EventTick implements IEvent, IHaveInstructions {
 
 	private final List<IInstruction> instructions;
+	private final UUID id;
+	private ITriggerListener triggerListener;
+
+	public EventTick() {
+
+		instructions = new LinkedList<IInstruction>();
+		id = UUID.randomUUID();
+	}
 
 	@Override
 	public boolean equals(Object o) {
@@ -26,15 +34,6 @@ public class EventTick implements IEvent, IHaveInstructions {
 	@Override
 	public int hashCode() {
 		return id.hashCode();
-	}
-
-	private final UUID id;
-	private ITriggerListener triggerListener;
-
-	public EventTick() {
-
-		instructions = new LinkedList<IInstruction>();
-		id = UUID.randomUUID();
 	}
 
 	@Override

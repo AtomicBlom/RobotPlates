@@ -1,8 +1,8 @@
 package net.binaryvibrance.robotplates.programming.instructions.action;
 
-import net.binaryvibrance.robotplates.entity.BaseRobot;
 import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
+import net.binaryvibrance.robotplates.entity.BaseRobot;
 import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -16,6 +16,7 @@ import java.util.*;
 public class ActionDetectPlayer implements IInstruction, IHaveInstructions {
 	private Iterator<EntityPlayer> iterator;
 	private List<IInstruction> instructions;
+
 	public ActionDetectPlayer() {
 		instructions = new LinkedList<IInstruction>();
 	}

@@ -6,6 +6,17 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public abstract class BaseRobot extends RobotPlatesEntity {
+	private final UUID id;
+	private Program program;
+	private int detectionRange;
+	public BaseRobot(World world) {
+		this(world, UUID.randomUUID());
+	}
+	public BaseRobot(World world, UUID id) {
+		super(world);
+		this.id = id;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
@@ -24,18 +35,6 @@ public abstract class BaseRobot extends RobotPlatesEntity {
 		int result = super.hashCode();
 		result = 31 * result + id.hashCode();
 		return result;
-	}
-
-	private final UUID id;
-	private Program program;
-	private int detectionRange;
-
-	public BaseRobot(World world) {
-		this(world, UUID.randomUUID());
-	}
-	public BaseRobot(World world, UUID id) {
-		super(world);
-		this.id = id;
 	}
 
 	@Override
@@ -65,8 +64,7 @@ public abstract class BaseRobot extends RobotPlatesEntity {
 		detectionRange = range;
 	}
 
-	protected Program getProgram()
-	{
+	protected Program getProgram() {
 		return this.program;
 	}
 

@@ -5,8 +5,6 @@ import net.binaryvibrance.robotplates.api.programming.IUseContainer;
 import net.binaryvibrance.robotplates.programming.instructions.InstructionConditional;
 import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 
-import java.util.Dictionary;
-
 public class ConditionalContainerEmpty extends InstructionConditional implements IUseContainer {
 	private IContainer container;
 

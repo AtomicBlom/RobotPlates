@@ -3,8 +3,7 @@ package net.binaryvibrance.robotplates.utility;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-public class RobotLookHelper
-{
+public class RobotLookHelper {
 	private Entity entity;
 	/**
 	 * The amount of change that is made each update for an entity facing a direction.
@@ -14,30 +13,27 @@ public class RobotLookHelper
 	 * The amount of change that is made each update for an entity facing a direction.
 	 */
 	private float deltaLookPitch;
-	/** Whether or not the entity is trying to look at something. */
+	/**
+	 * Whether or not the entity is trying to look at something.
+	 */
 	private boolean isLooking;
 	private double posX;
 	private double posY;
 	private double posZ;
 
-	public RobotLookHelper(Entity entity)
-	{
+	public RobotLookHelper(Entity entity) {
 		this.entity = entity;
 	}
 
 	/**
 	 * Sets position to look at using entity
 	 */
-	public void setLookPositionWithEntity(Entity entity, float yaw, float pitch)
-	{
+	public void setLookPositionWithEntity(Entity entity, float yaw, float pitch) {
 		this.posX = entity.posX;
 
-		if (entity instanceof Entity)
-		{
-			this.posY = entity.posY + (double)entity.getEyeHeight();
-		}
-		else
-		{
+		if (entity instanceof Entity) {
+			this.posY = entity.posY + (double) entity.getEyeHeight();
+		} else {
 			this.posY = (entity.boundingBox.minY + entity.boundingBox.maxY) / 2.0D;
 		}
 
@@ -50,8 +46,7 @@ public class RobotLookHelper
 	/**
 	 * Sets position to look at
 	 */
-	public void setLookPosition(double posX, double posY, double posZ, float rotationYaw, float rotationPitch)
-	{
+	public void setLookPosition(double posX, double posY, double posZ, float rotationYaw, float rotationPitch) {
 		this.posX = posX;
 		this.posY = posY;
 		this.posZ = posZ;
@@ -63,51 +58,32 @@ public class RobotLookHelper
 	/**
 	 * Updates look
 	 */
-	public void onUpdateLook()
-	{
+	public void onUpdateLook() {
 		this.entity.rotationPitch = 0.0F;
 
-		if (this.isLooking)
-		{
+		if (this.isLooking) {
 			this.isLooking = false;
 			double deltaX = this.posX - this.entity.posX;
-			double deltaY = this.posY - (this.entity.posY + (double)this.entity.getEyeHeight());
+			double deltaY = this.posY - (this.entity.posY + (double) this.entity.getEyeHeight());
 			double deltaZ = this.posZ - this.entity.posZ;
 			double d3 = (double) MathHelper.sqrt_double(deltaX * deltaX + deltaZ * deltaZ);
-			float destinationYawAngle = (float)(Math.atan2(deltaZ, deltaX) * 180.0D / Math.PI) - 90.0F;
-			float destinationPitchAngle = (float)(-(Math.atan2(deltaY, d3) * 180.0D / Math.PI));
+			float destinationYawAngle = (float) (Math.atan2(deltaZ, deltaX) * 180.0D / Math.PI) - 90.0F;
+			float destinationPitchAngle = (float) (-(Math.atan2(deltaY, d3) * 180.0D / Math.PI));
 			this.entity.rotationPitch = this.updateRotation(this.entity.rotationPitch, destinationPitchAngle, this.deltaLookPitch);
 			this.entity.rotationYaw = this.updateRotation(this.entity.rotationYaw, destinationYawAngle, this.deltaLookYaw);
-		}
-		else
-		{
+		} else {
 			this.entity.rotationYaw = this.updateRotation(this.entity.rotationYaw, 0, 1.0F);
 		}
-
-		float f2 = MathHelper.wrapAngleTo180_float(this.entity.rotationYaw);
-
-		/*if (f2 < -75.0F)
-		{
-			this.entity.rotationYaw = - 75.0F;
-		}
-
-		if (f2 > 75.0F)
-		{
-			this.entity.rotationYaw = + 75.0F;
-		}*/
 	}
 
-	private float updateRotation(float angle, float p_75652_2_, float delta)
-	{
+	private float updateRotation(float angle, float p_75652_2_, float delta) {
 		float f3 = MathHelper.wrapAngleTo180_float(p_75652_2_ - angle);
 
-		if (f3 > delta)
-		{
+		if (f3 > delta) {
 			f3 = delta;
 		}
 
-		if (f3 < -delta)
-		{
+		if (f3 < -delta) {
 			f3 = -delta;
 		}
 
