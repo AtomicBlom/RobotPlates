@@ -14,7 +14,7 @@ public abstract class TileEntityRobotPlates extends TileEntity {
 	protected String customName;
 	protected String owner;
 
-	public TileEntityRobotPlates() {
+	TileEntityRobotPlates() {
 		orientation = ForgeDirection.NORTH;
 		state = 0;
 		customName = "";

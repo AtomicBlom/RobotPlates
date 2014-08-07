@@ -25,8 +25,8 @@ public class ItemToolSolderingIron extends ItemRobotPlate {
 		z += pz;
 
 		//particleType, x, y, z, velX, velY, velZ
-		RenderManager.instance.worldObj.spawnParticle("smoke", x, y + 0.2f, z, 0, 0, 0);
-		RenderManager.instance.worldObj.spawnParticle("flame", x, y, z, 0, 0, 0);
+		world.spawnParticle("smoke", x, y + 0.2f, z, 0, 0, 0);
+		world.spawnParticle("flame", x, y, z, 0, 0, 0);
 		return true;
 	}
 

@@ -14,7 +14,7 @@ public class Program implements ITriggerListener {
 	private final List<IEvent> events;
 	private final List<InternalProgramState> runningEvents;
 	private boolean running;
-	private BaseRobot robot;
+	private final BaseRobot robot;
 
 	public Program(BaseRobot robot) {
 		this.robot = robot;
@@ -111,10 +111,8 @@ public class Program implements ITriggerListener {
 
 			InternalProgramState that = (InternalProgramState) o;
 
-			if (!event.equals(that.event)) return false;
-			if (!state.getRobot().equals(that.state.getRobot())) return false;
+			return event.equals(that.event) && state.getRobot().equals(that.state.getRobot());
 
-			return true;
 		}
 
 		@Override

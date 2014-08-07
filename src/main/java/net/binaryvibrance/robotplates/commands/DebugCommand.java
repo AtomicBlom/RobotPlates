@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Vector;
 
 public class DebugCommand extends CommandBase {
-	public List<IDebugReloadable> reloadableTypes;
+	private List<IDebugReloadable> reloadableTypes;
 
 	@Override
 	public String getCommandName() {
@@ -44,6 +44,7 @@ public class DebugCommand extends CommandBase {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private List<IDebugReloadable> buildReloadableTypes() {
 		List<IDebugReloadable> list = new LinkedList<IDebugReloadable>();
 

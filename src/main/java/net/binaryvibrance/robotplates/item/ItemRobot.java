@@ -41,7 +41,6 @@ public class ItemRobot extends Item {
 	}
 
 	private Entity spawnNewRobot(World world, ItemStack itemStack) {
-		BaseRobot bot = new RobotBob(world);
-		return bot;
+		return new RobotBob(world);
 	}
 }

@@ -20,8 +20,7 @@ public class ModelBob implements IDebugReloadable {
 	}
 
 	public void reload() {
-		IModelCustom advWavefrontObject = new AdvWavefrontObject(Models.BOB);
-		model = advWavefrontObject;
+		model = new AdvWavefrontObject(Models.BOB);
 	}
 
 	public void render() {

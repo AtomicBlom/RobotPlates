@@ -26,9 +26,8 @@ public class EventTick implements IEvent, IHaveInstructions {
 
 		EventTick eventTick = (EventTick) o;
 
-		if (!id.equals(eventTick.id)) return false;
+		return id.equals(eventTick.id);
 
-		return true;
 	}
 
 	@Override

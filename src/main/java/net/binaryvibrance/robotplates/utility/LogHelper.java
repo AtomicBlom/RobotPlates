@@ -8,12 +8,12 @@ import org.apache.logging.log4j.Level;
  * Based on LogHelper from EE3
  */
 public class LogHelper {
-	public static void log(Level logLevel, Object object) {
+	private static void log(Level logLevel, Object object) {
 
 		FMLLog.log(Reference.MOD_ID, logLevel, String.valueOf(object));
 	}
 
-	public static void log(Level logLevel, String format, Object... object) {
+	private static void log(Level logLevel, String format, Object... object) {
 		FMLLog.log(Reference.MOD_ID, logLevel, format, object);
 	}
 

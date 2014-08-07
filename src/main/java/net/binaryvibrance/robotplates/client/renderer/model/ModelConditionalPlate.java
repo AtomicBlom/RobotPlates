@@ -18,8 +18,7 @@ public class ModelConditionalPlate implements IDebugReloadable {
 	}
 
 	public void reload() {
-		IModelCustom advWavefrontObject = new AdvWavefrontObject(Models.CONDITIONAL_PLATE);
-		model = advWavefrontObject;
+		model = new AdvWavefrontObject(Models.CONDITIONAL_PLATE);
 		//model = AdvancedModelLoader.loadModel(Models.CONDITIONAL_PLATE);
 	}
 

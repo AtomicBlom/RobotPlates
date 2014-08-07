@@ -22,13 +22,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class BlockRobotPlate extends Block {
-	public BlockRobotPlate(Material material) {
+	BlockRobotPlate(Material material) {
 		super(material);
 		this.setCreativeTab(CreativeTabRobotPlate.ROBOTPLATES_TAB);
-	}
-
-	public BlockRobotPlate() {
-		this(Material.rock);
 	}
 
 	@Override

@@ -9,9 +9,9 @@ import net.binaryvibrance.robotplates.tileentity.TileEntityRobotPlates;
 import net.minecraft.tileentity.TileEntity;
 
 public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<MessageTileEntityRobotPlates, IMessage> {
-	public int x, y, z;
-	public byte orientation, state;
-	public String customName, owner;
+	private int x, y, z;
+	private byte orientation, state;
+	private String customName, owner;
 
 	@SuppressWarnings("UnusedDeclaration")
 	public MessageTileEntityRobotPlates() {

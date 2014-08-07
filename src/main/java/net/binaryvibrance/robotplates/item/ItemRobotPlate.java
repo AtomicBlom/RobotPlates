@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class ItemRobotPlate extends Item {
-	public ItemRobotPlate() {
+	ItemRobotPlate() {
 		super();
 		this.setCreativeTab(CreativeTabRobotPlate.ROBOTPLATES_TAB);
 	}

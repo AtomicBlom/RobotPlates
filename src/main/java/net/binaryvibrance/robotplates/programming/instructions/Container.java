@@ -7,7 +7,7 @@ import java.util.UUID;
 public class Container<T> implements IContainerOfT<T> {
 
 	private final Class<T> typeOfT;
-	private UUID identifier;
+	private final UUID identifier;
 	private T value;
 
 	public Container(Class type) {

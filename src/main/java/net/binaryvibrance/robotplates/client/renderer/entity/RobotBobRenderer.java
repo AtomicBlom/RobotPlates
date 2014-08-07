@@ -7,14 +7,14 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class RobotBobRenderer extends Render {
-	public static ModelBob modelBob = ModelBob.instance();
+	private static ModelBob model = ModelBob.instance();
 
 	public void doRender(Entity entity, double posX, double posY, double posZ, float rotationYaw, float rotationPitch) {
 		GL11.glPushMatrix();
 
 		GL11.glTranslated(posX, posY, posZ);
 		GL11.glRotatef(entity.rotationYaw, 0f, -1f, 0f);
-		modelBob.render();
+		model.render();
 		GL11.glPopMatrix();
 	}
 

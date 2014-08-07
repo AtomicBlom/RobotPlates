@@ -10,7 +10,7 @@ import java.util.Map;
 public class ProgramState {
 	private final Map<Class, Object> state;
 
-	private BaseRobot robot;
+	private final BaseRobot robot;
 
 	public ProgramState(BaseRobot robot) {
 		this.robot = robot;

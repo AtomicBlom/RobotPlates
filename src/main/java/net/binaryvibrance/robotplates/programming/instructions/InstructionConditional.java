@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class InstructionConditional implements IInstruction, IHaveSuccessAndFailInstructions {
-	private List<IInstruction> successInstructions;
-	private List<IInstruction> failInstructions;
+	private final List<IInstruction> successInstructions;
+	private final List<IInstruction> failInstructions;
 
 	protected InstructionConditional() {
 		successInstructions = new LinkedList<IInstruction>();

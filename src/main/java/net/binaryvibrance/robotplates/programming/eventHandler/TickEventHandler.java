@@ -8,8 +8,8 @@ import net.binaryvibrance.robotplates.api.programming.IEventHandler;
 import java.util.HashSet;
 
 public final class TickEventHandler implements IEventHandler {
-	private static TickEventHandler instance = new TickEventHandler();
-	private HashSet<IEvent> registeredEvents = new HashSet<IEvent>();
+	private static final TickEventHandler instance = new TickEventHandler();
+	private final HashSet<IEvent> registeredEvents = new HashSet<IEvent>();
 	private TickEventHandler() {
 	}
 

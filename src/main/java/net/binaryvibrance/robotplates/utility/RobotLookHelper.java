@@ -4,7 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class RobotLookHelper {
-	private Entity entity;
+	private final Entity entity;
 	/**
 	 * The amount of change that is made each update for an entity facing a direction.
 	 */
@@ -31,11 +31,7 @@ public class RobotLookHelper {
 	public void setLookPositionWithEntity(Entity entity, float yaw, float pitch) {
 		this.posX = entity.posX;
 
-		if (entity instanceof Entity) {
-			this.posY = entity.posY + (double) entity.getEyeHeight();
-		} else {
-			this.posY = (entity.boundingBox.minY + entity.boundingBox.maxY) / 2.0D;
-		}
+		this.posY = entity.posY + (double) entity.getEyeHeight();
 
 		this.posZ = entity.posZ;
 		this.deltaLookYaw = yaw;

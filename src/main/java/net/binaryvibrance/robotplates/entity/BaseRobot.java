@@ -9,10 +9,10 @@ public abstract class BaseRobot extends RobotPlatesEntity {
 	private final UUID id;
 	private Program program;
 	private int detectionRange;
-	public BaseRobot(World world) {
+	protected BaseRobot(World world) {
 		this(world, UUID.randomUUID());
 	}
-	public BaseRobot(World world, UUID id) {
+	protected BaseRobot(World world, UUID id) {
 		super(world);
 		this.id = id;
 	}
@@ -25,9 +25,8 @@ public abstract class BaseRobot extends RobotPlatesEntity {
 
 		BaseRobot baseRobot = (BaseRobot) o;
 
-		if (!id.equals(baseRobot.id)) return false;
+		return id.equals(baseRobot.id);
 
-		return true;
 	}
 
 	@Override
@@ -60,7 +59,7 @@ public abstract class BaseRobot extends RobotPlatesEntity {
 		return detectionRange;
 	}
 
-	public void setDetectionRange(int range) {
+	protected void setDetectionRange(int range) {
 		detectionRange = range;
 	}
 

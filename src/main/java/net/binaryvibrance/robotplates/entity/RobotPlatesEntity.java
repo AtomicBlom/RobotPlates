@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 
 public abstract class RobotPlatesEntity extends Entity {
 
-	public RobotPlatesEntity(World world) {
+	RobotPlatesEntity(World world) {
 		super(world);
 	}
 
