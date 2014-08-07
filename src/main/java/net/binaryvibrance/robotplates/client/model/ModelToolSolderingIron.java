@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.client.renderer.model;
+package net.binaryvibrance.robotplates.client.model;
 
 import net.binaryvibrance.robotplates.reference.Models;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;

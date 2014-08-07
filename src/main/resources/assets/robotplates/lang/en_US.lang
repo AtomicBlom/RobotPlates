@@ -1,12 +1,13 @@
 #Items
-#item.robotplates:conditionalPlate.name=Conditional Plate
-#item.robotplates:startPlate.name=Start Plate
-item.robotplates:remoteDebugger.name=Remote Debugger
+#item.robotplates:plateConditional.name=Conditional Plate
+#item.robotplates:plateProgrammer.name=Start Plate
+item.robotplates:toolRemoteDebugger.name=Remote Debugger
 item.robotplates:toolSolderingIron.name=Soldering Iron
 
 #Creative Tabs
 itemGroup.robotplates=Robot Plates
 
 #Blocks
-tile.robotplates:conditionalPlate.name=Conditional Plate
-tile.robotplates:startPlate.name=Start Plate
+tile.robotplates:plateConditional.name=Conditional Plate
+tile.robotplates:plateProgrammer.name=Programmer Plate
+tile.robotplates:plateCodePath.name=Code Path Plate

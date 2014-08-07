@@ -3,19 +3,19 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.binaryvibrance.robotplates.client.renderer.model.ModelStartPlate;
+import net.binaryvibrance.robotplates.client.model.ModelPlateProgrammer;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class ItemRendererStartPlate implements IItemRenderer {
+public class ItemRendererPlateProgrammer implements IItemRenderer {
 
-	private final ModelStartPlate modelStartPlate;
+	private final ModelPlateProgrammer model;
 
-	public ItemRendererStartPlate() {
-		modelStartPlate = ModelStartPlate.instance();
+	public ItemRendererPlateProgrammer() {
+		model = ModelPlateProgrammer.instance();
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class ItemRendererStartPlate implements IItemRenderer {
 		GL11.glTranslatef(x, y, z);
 		GL11.glTranslatef(0, 0, -0.5f);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.StartPlate);
-		modelStartPlate.render();
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PlateProgrammer);
+		model.render();
 
 		GL11.glPopMatrix();
 	}

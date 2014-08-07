@@ -3,7 +3,7 @@ package net.binaryvibrance.robotplates.programming.instructions;
 import net.binaryvibrance.robotplates.api.programming.IEvent;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
 import net.binaryvibrance.robotplates.api.programming.ITriggerListener;
-import net.binaryvibrance.robotplates.entity.BaseRobot;
+import net.binaryvibrance.robotplates.entity.EntityRobotBase;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 
 import java.util.LinkedList;
@@ -14,9 +14,9 @@ public class Program implements ITriggerListener {
 	private final List<IEvent> events;
 	private final List<InternalProgramState> runningEvents;
 	private boolean running;
-	private final BaseRobot robot;
+	private final EntityRobotBase robot;
 
-	public Program(BaseRobot robot) {
+	public Program(EntityRobotBase robot) {
 		this.robot = robot;
 		events = new LinkedList<IEvent>();
 		runningEvents = new LinkedList<InternalProgramState>();
@@ -96,7 +96,7 @@ public class Program implements ITriggerListener {
 		private final LinkedList<IInstruction> pendingInstructions = new LinkedList<IInstruction>();
 		private final ProgramState state;
 
-		InternalProgramState(IEvent event, BaseRobot robot) {
+		InternalProgramState(IEvent event, EntityRobotBase robot) {
 			this.event = event;
 			this.state = new ProgramState(robot);
 			for (IInstruction instruction : event.getInstructions()) {

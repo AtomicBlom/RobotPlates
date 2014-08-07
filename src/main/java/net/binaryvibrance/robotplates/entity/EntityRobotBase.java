@@ -5,14 +5,14 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public abstract class BaseRobot extends RobotPlatesEntity {
+public abstract class EntityRobotBase extends RobotPlatesEntity {
 	private final UUID id;
 	private Program program;
 	private int detectionRange;
-	protected BaseRobot(World world) {
+	protected EntityRobotBase(World world) {
 		this(world, UUID.randomUUID());
 	}
-	protected BaseRobot(World world, UUID id) {
+	protected EntityRobotBase(World world, UUID id) {
 		super(world);
 		this.id = id;
 	}
@@ -23,9 +23,9 @@ public abstract class BaseRobot extends RobotPlatesEntity {
 		if (o == null || getClass() != o.getClass()) return false;
 		if (!super.equals(o)) return false;
 
-		BaseRobot baseRobot = (BaseRobot) o;
+		EntityRobotBase entityRobotBase = (EntityRobotBase) o;
 
-		return id.equals(baseRobot.id);
+		return id.equals(entityRobotBase.id);
 
 	}
 

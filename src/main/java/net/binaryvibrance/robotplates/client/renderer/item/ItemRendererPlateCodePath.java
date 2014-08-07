@@ -3,19 +3,19 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.binaryvibrance.robotplates.client.model.ModelRobotBob;
+import net.binaryvibrance.robotplates.client.model.ModelPlateCodePath;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class ItemRendererRobotBob implements IItemRenderer {
+public class ItemRendererPlateCodePath implements IItemRenderer {
 
-	private final ModelRobotBob modelRobotBob;
+	private final ModelPlateCodePath model;
 
-	public ItemRendererRobotBob() {
-		modelRobotBob = ModelRobotBob.instance();
+	public ItemRendererPlateCodePath() {
+		model = ModelPlateCodePath.instance();
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class ItemRendererRobotBob implements IItemRenderer {
 				return;
 			}
 			case EQUIPPED_FIRST_PERSON: {
-				render(0.0F, 0.0F, 1.0F);
+				render(0.0F, 1.0F, 1.0F);
 				return;
 			}
 			case INVENTORY: {
@@ -58,8 +58,8 @@ public class ItemRendererRobotBob implements IItemRenderer {
 		GL11.glTranslatef(x, y, z);
 		GL11.glTranslatef(0, 0, -0.5f);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.RobotBobBody);
-		modelRobotBob.render();
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PlateCodePath);
+		model.render();
 
 		GL11.glPopMatrix();
 	}

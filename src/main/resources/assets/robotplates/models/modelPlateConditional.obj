@@ -1,4 +1,4 @@
-# Blender v2.71 (sub 0) OBJ File: 'conditionalPlate.blend'
+# Blender v2.71 (sub 0) OBJ File: 'modelPlateConditional.blend'
 # www.blender.org
 o Powered_West
 v -0.281250 0.156256 -0.031250
@@ -60,7 +60,7 @@ s off
 f 18/16 20/17 19/18
 f 20/17 16/19 17/20
 f 20/17 17/20 19/18
-o xChannel_Cube.005
+o xChannel
 v -0.562500 0.156250 0.031250
 v -0.562500 0.156250 -0.031250
 v 0.562500 0.156250 -0.031250
@@ -82,7 +82,7 @@ f 27 28 23
 f 28 25 24
 f 21 22 24
 f 28 27 25
-o yChannel_Cube.004
+o yChannel
 v -0.031250 0.156250 0.562500
 v -0.031250 0.156250 -0.562500
 v 0.031250 0.156250 -0.562500

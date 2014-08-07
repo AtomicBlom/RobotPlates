@@ -1,33 +1,32 @@
 package net.binaryvibrance.robotplates.client.renderer.tileentity;
 
-import net.binaryvibrance.robotplates.client.renderer.model.ModelConditionalPlate;
+import net.binaryvibrance.robotplates.client.model.ModelPlateConditional;
 import net.binaryvibrance.robotplates.reference.Textures;
-import net.binaryvibrance.robotplates.tileentity.TileEntityConditionalPlate;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateConditional;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
-public class TileEntityRendererConditionalPlate extends TileEntitySpecialRenderer {
+public class TileEntityRendererPlateConditional extends TileEntitySpecialRenderer {
 
-	private final ModelConditionalPlate modelConditionalPlate;
+	private final ModelPlateConditional model;
 
-	public TileEntityRendererConditionalPlate() {
-		modelConditionalPlate = ModelConditionalPlate.instance();
+	public TileEntityRendererPlateConditional() {
+		model = ModelPlateConditional.instance();
 	}
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		if (!(tileEntity instanceof TileEntityConditionalPlate)) return;
+		if (!(tileEntity instanceof TileEntityPlateConditional)) return;
 
-		TileEntityConditionalPlate tileEntityConditionalPlate = (TileEntityConditionalPlate) tileEntity;
+		TileEntityPlateConditional tileEntityPlateConditional = (TileEntityPlateConditional) tileEntity;
 
 		GL11.glPushMatrix();
-		scaleTranslateRotate(x, y, z, tileEntityConditionalPlate.getOrientation());
+		scaleTranslateRotate(x, y, z, tileEntityPlateConditional.getOrientation());
 
-
-		bindTexture(Textures.Model.ConditionalPlate);
-		modelConditionalPlate.render();
+		bindTexture(Textures.Model.PlateConditional);
+		model.render();
 
 		GL11.glPopMatrix();
 	}

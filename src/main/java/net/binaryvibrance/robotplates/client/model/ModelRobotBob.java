@@ -1,33 +1,34 @@
-package net.binaryvibrance.robotplates.client.renderer.model;
+package net.binaryvibrance.robotplates.client.model;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.binaryvibrance.robotplates.reference.Models;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.binaryvibrance.robotplates.utility.modelLoading.AdvWavefrontObject;
+import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-public class ModelBob implements IDebugReloadable {
-	private static ModelBob instance;
+public class ModelRobotBob implements IDebugReloadable {
+	private static ModelRobotBob instance;
 	private IModelCustom model;
 
-	private ModelBob() {
+	private ModelRobotBob() {
 		reload();
 	}
 
-	public static ModelBob instance() {
-		return (instance != null ? instance : (instance = new ModelBob()));
+	public static ModelRobotBob instance() {
+		return (instance != null ? instance : (instance = new ModelRobotBob()));
 	}
 
 	public void reload() {
-		model = new AdvWavefrontObject(Models.BOB);
+		model = AdvancedModelLoader.loadModel(Models.ROBOT_BOB);
 	}
 
 	public void render() {
 		if (model == null) {
 			reload();
 		}
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.BobBody);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.RobotBobBody);
 		model.renderPart("RobotBase");
 
 		model.renderPart("Wheel_Front_Left");

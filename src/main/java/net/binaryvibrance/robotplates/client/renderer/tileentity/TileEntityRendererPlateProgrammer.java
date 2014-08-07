@@ -1,33 +1,33 @@
 package net.binaryvibrance.robotplates.client.renderer.tileentity;
 
-import net.binaryvibrance.robotplates.client.renderer.model.ModelStartPlate;
+import net.binaryvibrance.robotplates.client.model.ModelPlateProgrammer;
 import net.binaryvibrance.robotplates.reference.Textures;
-import net.binaryvibrance.robotplates.tileentity.TileEntityStartPlate;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
-public class TileEntityRendererStartPlate extends TileEntitySpecialRenderer {
+public class TileEntityRendererPlateProgrammer extends TileEntitySpecialRenderer {
 
-	private final ModelStartPlate modelStartPlate;
+	private final ModelPlateProgrammer model;
 
-	public TileEntityRendererStartPlate() {
-		modelStartPlate = ModelStartPlate.instance();
+	public TileEntityRendererPlateProgrammer() {
+		model = ModelPlateProgrammer.instance();
 	}
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		if (!(tileEntity instanceof TileEntityStartPlate)) return;
+		if (!(tileEntity instanceof TileEntityPlateProgrammer)) return;
 
-		TileEntityStartPlate tileEntityStartPlate = (TileEntityStartPlate) tileEntity;
+		TileEntityPlateProgrammer tileEntityPlateProgrammer = (TileEntityPlateProgrammer) tileEntity;
 
 		GL11.glPushMatrix();
 
-		scaleTranslateRotate(x, y, z, tileEntityStartPlate.getOrientation());
+		scaleTranslateRotate(x, y, z, tileEntityPlateProgrammer.getOrientation());
 
-		bindTexture(Textures.Model.StartPlate);
-		modelStartPlate.render();
+		bindTexture(Textures.Model.PlateProgrammer);
+		model.render();
 
 		GL11.glPopMatrix();
 	}

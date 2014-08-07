@@ -3,19 +3,19 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.binaryvibrance.robotplates.client.renderer.model.ModelConditionalPlate;
+import net.binaryvibrance.robotplates.client.model.ModelToolRemoteDebugger;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class ItemRendererConditionalPlate implements IItemRenderer {
+public class ItemRendererToolRemoteDebugger implements IItemRenderer {
 
-	private final ModelConditionalPlate model;
+	private final ModelToolRemoteDebugger model;
 
-	public ItemRendererConditionalPlate() {
-		model = ModelConditionalPlate.instance();
+	public ItemRendererToolRemoteDebugger() {
+		model = ModelToolRemoteDebugger.instance();
 	}
 
 	@Override
@@ -40,11 +40,11 @@ public class ItemRendererConditionalPlate implements IItemRenderer {
 				return;
 			}
 			case EQUIPPED_FIRST_PERSON: {
-				render(0.0F, 1.0F, 1.0F);
+				render(0.0F, 0.0F, 1.0F);
 				return;
 			}
 			case INVENTORY: {
-				render(-0.5F, -0.9F, 0.0F);
+				render(-1.0F, -0.9F, 0.0F);
 				return;
 			}
 			default:
@@ -55,10 +55,11 @@ public class ItemRendererConditionalPlate implements IItemRenderer {
 	private void render(float x, float y, float z) {
 		GL11.glPushMatrix();
 
+		GL11.glScalef(1f, 1f, 1f);
 		GL11.glTranslatef(x, y, z);
-		GL11.glTranslatef(0, 0, -0.5f);
+		GL11.glRotatef(-90f, 1f, 0, 0);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ConditionalPlate);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ToolRemoteDebugger);
 		model.render();
 
 		GL11.glPopMatrix();

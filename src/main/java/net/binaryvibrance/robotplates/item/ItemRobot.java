@@ -1,8 +1,7 @@
 package net.binaryvibrance.robotplates.item;
 
 import net.binaryvibrance.robotplates.creativetab.CreativeTabRobotPlate;
-import net.binaryvibrance.robotplates.entity.BaseRobot;
-import net.binaryvibrance.robotplates.entity.robot.RobotBob;
+import net.binaryvibrance.robotplates.entity.robot.EntityRobotBaseBob;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -41,6 +40,6 @@ public class ItemRobot extends Item {
 	}
 
 	private Entity spawnNewRobot(World world, ItemStack itemStack) {
-		return new RobotBob(world);
+		return new EntityRobotBaseBob(world);
 	}
 }

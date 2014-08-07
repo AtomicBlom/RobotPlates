@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.programming.instructions;
 
-import net.binaryvibrance.robotplates.entity.BaseRobot;
+import net.binaryvibrance.robotplates.entity.EntityRobotBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -10,9 +10,9 @@ import java.util.Map;
 public class ProgramState {
 	private final Map<Class, Object> state;
 
-	private final BaseRobot robot;
+	private final EntityRobotBase robot;
 
-	public ProgramState(BaseRobot robot) {
+	public ProgramState(EntityRobotBase robot) {
 		this.robot = robot;
 		state = new HashMap<Class, Object>();
 	}
@@ -38,7 +38,7 @@ public class ProgramState {
 		return state.containsKey(clazz);
 	}
 
-	public BaseRobot getRobot() {
+	public EntityRobotBase getRobot() {
 		return robot;
 	}
 

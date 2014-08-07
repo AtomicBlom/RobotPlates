@@ -2,8 +2,9 @@ package net.binaryvibrance.robotplates.reference;
 
 public final class Names {
 	public static final class Blocks {
-		public static final String START_PLATE = "startPlate";
-		public static final String CONDITIONAL_PLATE = "conditionalPlate";
+		public static final String PLATE_PROGRAMMER = "plateProgrammer";
+		public static final String PLATE_CONDITIONAL = "plateConditional";
+		public static final String PLATE_CODE_PATH = "plateCodePath";
 	}
 
 	public static class NBT {
