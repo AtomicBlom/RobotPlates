@@ -1,6 +1,6 @@
 #Items
-#item.robotplates:plateConditional.name=Conditional Plate
-#item.robotplates:plateProgrammer.name=Start Plate
+item.robotplates:componentContainer.name=Container
+
 item.robotplates:toolRemoteDebugger.name=Remote Debugger
 item.robotplates:toolSolderingIron.name=Soldering Iron
 

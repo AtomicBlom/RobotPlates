@@ -10,7 +10,7 @@ public class CreativeTabRobotPlate {
 
 		@Override
 		public Item getTabIconItem() {
-			return ModItems.remoteDebugger;
+			return ModItems.TOOL_REMOTE_DEBUGGER;
 		}
 	};
 }

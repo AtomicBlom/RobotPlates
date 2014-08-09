@@ -68,7 +68,7 @@ public class ItemRendererToolSolderingIron implements IItemRenderer {
 	}
 
 	private void renderIron() {
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ToolSolderingIron);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.TOOL_SOLDERING_IRON);
 		model.render();
 
 

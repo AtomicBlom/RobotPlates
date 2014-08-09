@@ -1,10 +1,8 @@
 package net.binaryvibrance.robotplates.client.renderer.tileentity;
 
 import net.binaryvibrance.robotplates.client.model.ModelPlateCodePath;
-import net.binaryvibrance.robotplates.client.model.ModelPlateConditional;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateCodePath;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateConditional;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -27,7 +25,7 @@ public class TileEntityRendererPlateCodePath extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		scaleTranslateRotate(x, y, z, castTileEntity.getOrientation());
 
-		bindTexture(Textures.Model.PlateCodePath);
+		bindTexture(Textures.Model.PLATE_CODE_PATH);
 		model.render();
 
 		GL11.glPopMatrix();

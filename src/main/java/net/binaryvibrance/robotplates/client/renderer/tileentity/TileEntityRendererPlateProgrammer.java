@@ -26,7 +26,7 @@ public class TileEntityRendererPlateProgrammer extends TileEntitySpecialRenderer
 
 		scaleTranslateRotate(x, y, z, tileEntityPlateProgrammer.getOrientation());
 
-		bindTexture(Textures.Model.PlateProgrammer);
+		bindTexture(Textures.Model.PLATE_PROGRAMMER);
 		model.render();
 
 		GL11.glPopMatrix();

@@ -59,7 +59,7 @@ public class ItemRendererToolRemoteDebugger implements IItemRenderer {
 		GL11.glTranslatef(x, y, z);
 		GL11.glRotatef(-90f, 1f, 0, 0);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ToolRemoteDebugger);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.TOOL_REMOTE_DEBUGGER);
 		model.render();
 
 		GL11.glPopMatrix();

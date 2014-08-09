@@ -26,12 +26,17 @@ public class ClientProxy extends CommonProxy {
 		RenderIds.plateCodePath = RenderingRegistry.getNextAvailableRenderId();
 
 		//Item renderer
+		//Blocks
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.plateProgrammer), new ItemRendererPlateProgrammer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.plateConditional), new ItemRendererPlateConditional());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.plateCodePath), new ItemRendererPlateCodePath());
-		MinecraftForgeClient.registerItemRenderer(ModItems.remoteDebugger, new ItemRendererToolRemoteDebugger());
-		MinecraftForgeClient.registerItemRenderer(ModItems.robot, new ItemRendererRobotBob());
-		MinecraftForgeClient.registerItemRenderer(ModItems.toolSolderingIron, new ItemRendererToolSolderingIron());
+		//Containers
+		MinecraftForgeClient.registerItemRenderer(ModItems.COMPONENT_CONTAINER, new ItemRendererComponentContainer());
+		//Robots
+		MinecraftForgeClient.registerItemRenderer(ModItems.ROBOT, new ItemRendererRobotBob());
+		//Tools
+		MinecraftForgeClient.registerItemRenderer(ModItems.TOOL_REMOTE_DEBUGGER, new ItemRendererToolRemoteDebugger());
+		MinecraftForgeClient.registerItemRenderer(ModItems.TOOL_SOLDERING_IRON, new ItemRendererToolSolderingIron());
 
 		//TileEntities
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlateProgrammer.class, new TileEntityRendererPlateProgrammer());

@@ -58,7 +58,7 @@ public class ItemRendererPlateCodePath implements IItemRenderer {
 		GL11.glTranslatef(x, y, z);
 		GL11.glTranslatef(0, 0, -0.5f);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PlateCodePath);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PLATE_CODE_PATH);
 		model.render();
 
 		GL11.glPopMatrix();

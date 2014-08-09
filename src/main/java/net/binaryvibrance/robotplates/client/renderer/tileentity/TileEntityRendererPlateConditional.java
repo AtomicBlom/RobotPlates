@@ -25,7 +25,7 @@ public class TileEntityRendererPlateConditional extends TileEntitySpecialRendere
 		GL11.glPushMatrix();
 		scaleTranslateRotate(x, y, z, tileEntityPlateConditional.getOrientation());
 
-		bindTexture(Textures.Model.PlateConditional);
+		bindTexture(Textures.Model.PLATE_CONDITIONAL);
 		model.render();
 
 		GL11.glPopMatrix();

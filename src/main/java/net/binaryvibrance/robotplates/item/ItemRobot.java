@@ -15,6 +15,7 @@ public class ItemRobot extends Item {
 	public ItemRobot() {
 		super();
 		this.setCreativeTab(CreativeTabRobotPlate.ROBOTPLATES_TAB);
+		this.setUnlocalizedName("robot");
 	}
 
 	@Override

@@ -58,7 +58,7 @@ public class ItemRendererRobotBob implements IItemRenderer {
 		GL11.glTranslatef(x, y, z);
 		GL11.glTranslatef(0, 0, -0.5f);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.RobotBobBody);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ROBOT_BOB_BODY);
 		modelRobotBob.render();
 
 		GL11.glPopMatrix();

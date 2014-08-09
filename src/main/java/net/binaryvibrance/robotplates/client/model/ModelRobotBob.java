@@ -4,7 +4,6 @@ import cpw.mods.fml.client.FMLClientHandler;
 import net.binaryvibrance.robotplates.reference.Models;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;
-import net.binaryvibrance.robotplates.utility.modelLoading.AdvWavefrontObject;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
@@ -28,7 +27,7 @@ public class ModelRobotBob implements IDebugReloadable {
 		if (model == null) {
 			reload();
 		}
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.RobotBobBody);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.ROBOT_BOB_BODY);
 		model.renderPart("RobotBase");
 
 		model.renderPart("Wheel_Front_Left");

@@ -1,0 +1,62 @@
+package net.binaryvibrance.robotplates.client.renderer.item;
+
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.binaryvibrance.robotplates.client.model.ModelComponentContainer;
+import net.binaryvibrance.robotplates.reference.Textures;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
+
+@SideOnly(Side.CLIENT)
+public class ItemRendererComponentContainer implements IItemRenderer {
+
+	private final ModelComponentContainer model;
+
+	public ItemRendererComponentContainer() {
+		model = ModelComponentContainer.instance();
+	}
+
+	@Override
+	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
+		return true;
+	}
+
+	@Override
+	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
+		return true;
+	}
+
+	@Override
+	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+		GL11.glPushMatrix();
+		GL11.glScalef(1f, 1f, 1f);
+		switch (type) {
+			case ENTITY:
+				GL11.glTranslatef(0F, 0F, 0F);
+				render();
+				break;
+			case EQUIPPED:
+				GL11.glTranslatef(0.7F, 0.5F, 0.7F);
+				render();
+				break;
+			case EQUIPPED_FIRST_PERSON:
+				GL11.glTranslatef(0.7F, 0.7F, 0.7F);
+				render();
+				break;
+			case INVENTORY:
+				GL11.glScalef(2f, 2f, 2f);
+				GL11.glTranslatef(-0.0F, -0.0F, 0.0F);
+				render();
+				break;
+			default:
+		}
+		GL11.glPopMatrix();
+	}
+
+	private void render() {
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.COMPONENT_CONTAINER);
+		model.render();
+	}
+}
