@@ -7,9 +7,10 @@ public class Textures {
 		private static final String MODEL_TEXTURE_LOCATION = "textures/models/";
 
 		//Plates
-		public static final ResourceLocation PLATE_PROGRAMMER = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelPlateProgrammer.png");
-		public static final ResourceLocation PLATE_CONDITIONAL = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelPlateConditional.png");
+		public static final ResourceLocation PLATE_ACTION = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelPlateAction.png");
 		public static final ResourceLocation PLATE_CODE_PATH = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelPlateCodePath.png");
+		public static final ResourceLocation PLATE_CONDITIONAL = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelPlateConditional.png");
+		public static final ResourceLocation PLATE_PROGRAMMER = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelPlateProgrammer.png");
 
 		//Components
 		public static final ResourceLocation COMPONENT_CONTAINER = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelComponentContainer.png");

@@ -5,28 +5,28 @@ import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-public class ModelPlateConditional implements IDebugReloadable {
-	private static ModelPlateConditional instance;
+public class ModelPlateAction implements IDebugReloadable {
+	private static ModelPlateAction instance;
 	private IModelCustom model;
 
-	private ModelPlateConditional() {
+	private ModelPlateAction() {
 		reload();
 	}
 
-	public static ModelPlateConditional instance() {
-		return (instance != null ? instance : (instance = new ModelPlateConditional()));
+	public static ModelPlateAction instance() {
+		return (instance != null ? instance : (instance = new ModelPlateAction()));
 	}
 
 	public void reload() {
-		model = AdvancedModelLoader.loadModel(Models.PLATE_CONDITIONAL);
+		model = AdvancedModelLoader.loadModel(Models.PLATE_ACTION);
 	}
 
 	public void render() {
 		if (model == null) {
 			reload();
 		}
-		model.renderPart("Plate");
-		model.renderPart("Powered_North");
+		model.renderPart("plateAction");
+		model.renderPart("Active_North");
 	}
 
 	public void renderContacts() {

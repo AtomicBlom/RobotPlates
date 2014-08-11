@@ -3,6 +3,7 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.binaryvibrance.robotplates.client.model.ModelPlateAction;
 import net.binaryvibrance.robotplates.client.model.ModelPlateConditional;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.item.ItemStack;
@@ -10,12 +11,12 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class ItemRendererPlateConditional implements IItemRenderer {
+public class ItemRendererPlateAction implements IItemRenderer {
 
-	private final ModelPlateConditional model;
+	private final ModelPlateAction model;
 
-	public ItemRendererPlateConditional() {
-		model = ModelPlateConditional.instance();
+	public ItemRendererPlateAction() {
+		model = ModelPlateAction.instance();
 	}
 
 	@Override
@@ -54,12 +55,12 @@ public class ItemRendererPlateConditional implements IItemRenderer {
 
 	private void render(float x, float y, float z) {
 		GL11.glPushMatrix();
-
 		final float scale = (1f/16f);
+
 		GL11.glTranslatef(x, y, z);
 		GL11.glScalef(scale, scale, scale);
 
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PLATE_CONDITIONAL);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PLATE_ACTION);
 		model.render();
 
 		GL11.glPopMatrix();

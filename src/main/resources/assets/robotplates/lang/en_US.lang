@@ -8,6 +8,7 @@ item.robotplates:toolSolderingIron.name=Soldering Iron
 itemGroup.robotplates=Robot Plates
 
 #Blocks
+tile.robotplates:plateAction.name=Action Plate
+tile.robotplates:plateCodePath.name=Code Path Plate
 tile.robotplates:plateConditional.name=Conditional Plate
 tile.robotplates:plateProgrammer.name=Programmer Plate
-tile.robotplates:plateCodePath.name=Code Path Plate
