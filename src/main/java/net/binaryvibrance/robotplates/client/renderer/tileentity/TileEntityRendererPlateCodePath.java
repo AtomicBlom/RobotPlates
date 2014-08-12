@@ -27,6 +27,8 @@ public class TileEntityRendererPlateCodePath extends TileEntitySpecialRenderer {
 
 		bindTexture(Textures.Model.PLATE_CODE_PATH);
 		model.render();
+		bindTexture(Textures.Model.PLATE_SIGNAL);
+		model.renderActive(true, false, false, false);
 
 		GL11.glPopMatrix();
 	}
@@ -44,5 +46,6 @@ public class TileEntityRendererPlateCodePath extends TileEntitySpecialRenderer {
 			GL11.glTranslated(x + 0.5, y, z + 0.5);
 			GL11.glRotatef(90F, 0F, 1F, 0F);
 		}
+		GL11.glScalef(model.scale, model.scale, model.scale);
 	}
 }

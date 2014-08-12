@@ -32,11 +32,11 @@ public class ItemRendererPlateCodePath implements IItemRenderer {
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		switch (type) {
 			case ENTITY: {
-				render(-0.5F, -0.38F, 0.5F);
+				render(-0F, -0.38F, 0.0F);
 				return;
 			}
 			case EQUIPPED: {
-				render(0.0F, 0.0F, 1.0F);
+				render(0.0F, 0.5F, 0.5F);
 				return;
 			}
 			case EQUIPPED_FIRST_PERSON: {
@@ -44,7 +44,7 @@ public class ItemRendererPlateCodePath implements IItemRenderer {
 				return;
 			}
 			case INVENTORY: {
-				render(-0.5F, -0.9F, 0.0F);
+				render(-0.5F, -0.8F, -0.5F);
 				return;
 			}
 			default:
@@ -56,7 +56,7 @@ public class ItemRendererPlateCodePath implements IItemRenderer {
 		GL11.glPushMatrix();
 
 		GL11.glTranslatef(x, y, z);
-		GL11.glTranslatef(0, 0, -0.5f);
+		GL11.glScalef(model.scale, model.scale, model.scale);
 
 		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.Model.PLATE_CODE_PATH);
 		model.render();

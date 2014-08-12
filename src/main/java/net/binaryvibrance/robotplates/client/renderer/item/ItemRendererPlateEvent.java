@@ -57,15 +57,12 @@ public class ItemRendererPlateEvent implements IItemRenderer {
 	private void render(float x, float y, float z) {
 		GL11.glPushMatrix();
 
-
 		GL11.glTranslatef(x, y, z);
 		GL11.glScalef(model.scale, model.scale, model.scale);
 
 		TextureManager renderEngine = FMLClientHandler.instance().getClient().renderEngine;
 		renderEngine.bindTexture(Textures.Model.PLATE_EVENT);
 		model.render();
-		//renderEngine.bindTexture(Textures.Model.PLATE_SIGNAL);
-		//model.renderActive(true, false, false, false);
 
 		GL11.glPopMatrix();
 	}
