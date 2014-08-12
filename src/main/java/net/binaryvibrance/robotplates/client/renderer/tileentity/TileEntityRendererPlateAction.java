@@ -29,7 +29,6 @@ public class TileEntityRendererPlateAction extends TileEntitySpecialRenderer {
 
 		bindTexture(Textures.Model.PLATE_ACTION);
 		model.render();
-		model.renderContacts();
 
 		GL11.glPopMatrix();
 	}
