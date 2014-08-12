@@ -11,4 +11,5 @@ itemGroup.robotplates=Robot Plates
 tile.robotplates:plateAction.name=Action Plate
 tile.robotplates:plateCodePath.name=Code Path Plate
 tile.robotplates:plateConditional.name=Conditional Plate
+tile.robotplates:plateEvent.name=Event Plate
 tile.robotplates:plateProgrammer.name=Programmer Plate

@@ -1,17 +1,18 @@
 package net.binaryvibrance.robotplates.block;
 
 import net.binaryvibrance.robotplates.reference.RenderIds;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateAction;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPlateProgrammer extends BlockRobotPlate implements ITileEntityProvider {
-	public BlockPlateProgrammer() {
+public class BlockPlateEvent extends BlockRobotPlate implements ITileEntityProvider {
+	public BlockPlateEvent() {
 		super(Material.rock);
-		this.setBlockName("plateProgrammer");
-		this.setBlockTextureName("modelPlateProgrammer");
+		this.setBlockName("plateEvent");
+		this.setBlockTextureName("modelPlateEvent");
 		this.setBlockBounds(0.00F, 0.0F, 0.00F, 1.00F, (3f / 16f), 1.00F);
 	}
 
@@ -22,7 +23,7 @@ public class BlockPlateProgrammer extends BlockRobotPlate implements ITileEntity
 
 	@Override
 	public int getRenderType() {
-		return RenderIds.plateProgrammer;
+		return RenderIds.plateEvent;
 	}
 
 	@Override
@@ -32,6 +33,6 @@ public class BlockPlateProgrammer extends BlockRobotPlate implements ITileEntity
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int metaData) {
-		return new TileEntityPlateProgrammer();
+		return new TileEntityPlateEvent();
 	}
 }

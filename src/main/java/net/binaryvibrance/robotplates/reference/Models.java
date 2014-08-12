@@ -10,8 +10,9 @@ public final class Models {
 
 	//Plates
 	public static final ResourceLocation PLATE_ACTION = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateAction.obj");
-	public static final ResourceLocation PLATE_CONDITIONAL = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateConditional.obj");
 	public static final ResourceLocation PLATE_CODE_PATH = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateCodePath.obj");
+	public static final ResourceLocation PLATE_CONDITIONAL = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateConditional.obj");
+	public static final ResourceLocation PLATE_EVENT = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateEvent.obj");
 	public static final ResourceLocation PLATE_PROGRAMMER = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateProgrammer.obj");
 
 	//Robots
