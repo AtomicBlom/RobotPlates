@@ -50,7 +50,9 @@ public class BlockRobotPlate extends Block {
 
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLiving, ItemStack itemStack) {
-		if (world.getTileEntity(x, y, z) instanceof TileEntityRobotPlates) {
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
+		if (tileEntity instanceof TileEntityRobotPlates) {
+			TileEntityRobotPlates rpTileEntity = (TileEntityRobotPlates)tileEntity;
 			int direction = 0;
 			int facing = MathHelper.floor_double((entityLiving.rotationYaw + 180.0f) * 4.0F / 360.0F + 0.5D) & 3;
 
@@ -69,10 +71,9 @@ public class BlockRobotPlate extends Block {
 			}
 
 			if (itemStack.hasDisplayName()) {
-				((TileEntityRobotPlates) world.getTileEntity(x, y, z)).setCustomName(itemStack.getDisplayName());
+				rpTileEntity.setCustomName(itemStack.getDisplayName());
 			}
-
-			((TileEntityRobotPlates) world.getTileEntity(x, y, z)).setOrientation(direction);
+			rpTileEntity.setOrientation(direction);
 		}
 	}
 

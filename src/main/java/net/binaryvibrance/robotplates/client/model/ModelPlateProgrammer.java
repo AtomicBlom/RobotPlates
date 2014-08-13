@@ -5,26 +5,24 @@ import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
 
-public class ModelPlateProgrammer implements IDebugReloadable {
+public class ModelPlateProgrammer extends BaseModelPlate {
 	private static ModelPlateProgrammer instance;
-	private IModelCustom model;
-
-	private ModelPlateProgrammer() {
-		reload();
-	}
-
 	public static ModelPlateProgrammer instance() {
 		return (instance != null ? instance : (instance = new ModelPlateProgrammer()));
 	}
+	private final static String[] parts = {
+			"plate",
+			"SolderSpot001",
+			"SolderSpot002",
+			"SolderSpot003",
+			"SolderSpot004",
+			"SolderSpot005",
+			"SolderSpot006",
+			"SolderSpot007",
+			"SolderSpot008"
+	};
 
-	public void reload() {
-		model = AdvancedModelLoader.loadModel(Models.PLATE_PROGRAMMER);
-	}
-
-	public void render() {
-		if (model == null) {
-			reload();
-		}
-		model.renderPart("Plate");
+	private ModelPlateProgrammer() {
+		super(Models.PLATE_PROGRAMMER, parts);
 	}
 }
