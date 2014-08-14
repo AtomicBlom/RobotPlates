@@ -1,20 +1,23 @@
 package net.binaryvibrance.robotplates.tileentity;
 
 import net.binaryvibrance.robotplates.init.ModPackets;
-import net.binaryvibrance.robotplates.network.MessageTileEntityRobotPlates;
+import net.binaryvibrance.robotplates.network.RobotPlatesTileEntityMessage;
+import net.binaryvibrance.robotplates.reference.Constants;
 import net.binaryvibrance.robotplates.reference.Names;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public abstract class TileEntityRobotPlates extends TileEntity {
+public abstract class RobotPlatesTileEntityBase extends TileEntity {
 	protected ForgeDirection orientation;
 	protected byte state;
 	protected String customName;
 	protected String owner;
 
-	TileEntityRobotPlates() {
+	protected boolean[] signalActive = new boolean[7];
+
+	RobotPlatesTileEntityBase() {
 		orientation = ForgeDirection.NORTH;
 		state = 0;
 		customName = "";
@@ -105,7 +108,33 @@ public abstract class TileEntityRobotPlates extends TileEntity {
 
 	@Override
 	public Packet getDescriptionPacket() {
-		return ModPackets.NETWORK.getPacketFrom(new MessageTileEntityRobotPlates(this));
+		return ModPackets.NETWORK.getPacketFrom(new RobotPlatesTileEntityMessage(this));
 	}
 
+	public void checkUpdate(RobotPlatesTileEntityBase neighbour, ForgeDirection directionToNeighbour) {
+		//This should be based on the direction of the signal.
+		if (neighbour == null) {
+			signalActive[directionToNeighbour.ordinal() - 2] = false;
+		} else {
+			signalActive[directionToNeighbour.ordinal() - 2] = true;
+		}
+	}
+
+	public void checkUpdate(boolean deleting) {
+
+		for (ForgeDirection direction : Constants.COMPASS_DIRECTIONS) {
+			TileEntity tileEntity = worldObj.getTileEntity(xCoord + direction.offsetX, yCoord + direction.offsetY, zCoord + direction.offsetZ);
+			if (tileEntity instanceof RobotPlatesTileEntityBase) {
+				RobotPlatesTileEntityBase robotPlatesTileEntity = (RobotPlatesTileEntityBase)tileEntity;
+				robotPlatesTileEntity.checkUpdate(deleting ? null : this, direction.getOpposite());
+				signalActive[direction.ordinal() - 2] = true;
+			} else {
+				signalActive[direction.ordinal() - 2] = false;
+			}
+		}
+	}
+
+	public boolean getSignalActive(ForgeDirection direction) {
+		return signalActive[direction.ordinal() - 2];
+	}
 }

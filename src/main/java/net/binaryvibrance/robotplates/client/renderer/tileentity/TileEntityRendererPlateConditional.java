@@ -28,6 +28,13 @@ public class TileEntityRendererPlateConditional extends TileEntitySpecialRendere
 		bindTexture(Textures.Model.PLATE_CONDITIONAL);
 		model.render();
 		model.renderContacts();
+		/*bindTexture(Textures.Model.PLATE_SIGNAL);
+		model.renderActive(
+				castTileEntity.getSignalActive(ForgeDirection.NORTH),
+				castTileEntity.getSignalActive(ForgeDirection.EAST),
+				castTileEntity.getSignalActive(ForgeDirection.SOUTH),
+				castTileEntity.getSignalActive(ForgeDirection.WEST)
+		);*/
 
 		GL11.glPopMatrix();
 	}

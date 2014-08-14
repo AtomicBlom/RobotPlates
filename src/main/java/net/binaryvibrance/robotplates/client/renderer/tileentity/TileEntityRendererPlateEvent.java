@@ -20,15 +20,20 @@ public class TileEntityRendererPlateEvent extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		if (!(tileEntity instanceof TileEntityPlateEvent)) return;
 
-		TileEntityPlateEvent tileEntityPlateConditional = (TileEntityPlateEvent) tileEntity;
+		TileEntityPlateEvent castTileEntity = (TileEntityPlateEvent) tileEntity;
 
 		GL11.glPushMatrix();
-		scaleTranslateRotate(x, y, z, tileEntityPlateConditional.getOrientation());
+		scaleTranslateRotate(x, y, z, castTileEntity.getOrientation());
 
 		bindTexture(Textures.Model.PLATE_EVENT);
 		model.render();
 		bindTexture(Textures.Model.PLATE_SIGNAL);
-		model.renderActive(true, false, false, false);
+		model.renderActive(
+				castTileEntity.getSignalActive(ForgeDirection.NORTH),
+				castTileEntity.getSignalActive(ForgeDirection.EAST),
+				castTileEntity.getSignalActive(ForgeDirection.SOUTH),
+				castTileEntity.getSignalActive(ForgeDirection.WEST)
+		);
 
 		GL11.glPopMatrix();
 	}

@@ -1,14 +1,13 @@
 package net.binaryvibrance.robotplates.block;
 
 import net.binaryvibrance.robotplates.reference.RenderIds;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateAction;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPlateEvent extends BlockRobotPlate implements ITileEntityProvider {
+public class BlockPlateEvent extends RobotPlateBlockBase implements ITileEntityProvider {
 	public BlockPlateEvent() {
 		super(Material.rock);
 		this.setBlockName("plateEvent");

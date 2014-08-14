@@ -2,13 +2,12 @@ package net.binaryvibrance.robotplates.block;
 
 import net.binaryvibrance.robotplates.reference.RenderIds;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateAction;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateConditional;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPlateAction extends BlockRobotPlate implements ITileEntityProvider {
+public class BlockPlateAction extends RobotPlateBlockBase implements ITileEntityProvider {
 	public BlockPlateAction() {
 		super(Material.rock);
 		this.setBlockName("plateAction");

@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPlateConditional extends BlockRobotPlate implements ITileEntityProvider {
+public class BlockPlateConditional extends RobotPlateBlockBase implements ITileEntityProvider {
 	public BlockPlateConditional() {
 		super(Material.rock);
 		this.setBlockName("plateConditional");

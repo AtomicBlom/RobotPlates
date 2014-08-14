@@ -28,7 +28,12 @@ public class TileEntityRendererPlateCodePath extends TileEntitySpecialRenderer {
 		bindTexture(Textures.Model.PLATE_CODE_PATH);
 		model.render();
 		bindTexture(Textures.Model.PLATE_SIGNAL);
-		model.renderActive(true, false, false, false);
+		model.renderActive(
+				castTileEntity.getSignalActive(ForgeDirection.NORTH),
+				castTileEntity.getSignalActive(ForgeDirection.EAST),
+				castTileEntity.getSignalActive(ForgeDirection.SOUTH),
+				castTileEntity.getSignalActive(ForgeDirection.WEST)
+		);
 
 		GL11.glPopMatrix();
 	}

@@ -1,4 +1,4 @@
 package net.binaryvibrance.robotplates.tileentity;
 
-public class TileEntityPlateCodePath extends TileEntityRobotPlates {
+public class TileEntityPlateCodePath extends RobotPlatesTileEntityBase {
 }

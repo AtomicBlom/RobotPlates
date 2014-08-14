@@ -20,16 +20,21 @@ public class TileEntityRendererPlateProgrammer extends TileEntitySpecialRenderer
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
 		if (!(tileEntity instanceof TileEntityPlateProgrammer)) return;
 
-		TileEntityPlateProgrammer tileEntityPlateProgrammer = (TileEntityPlateProgrammer) tileEntity;
+		TileEntityPlateProgrammer castTileEntity = (TileEntityPlateProgrammer) tileEntity;
 
 		GL11.glPushMatrix();
 
-		scaleTranslateRotate(x, y, z, tileEntityPlateProgrammer.getOrientation());
+		scaleTranslateRotate(x, y, z, castTileEntity.getOrientation());
 
 		bindTexture(Textures.Model.PLATE_PROGRAMMER);
 		model.render();
 		bindTexture(Textures.Model.PLATE_SIGNAL);
-		model.renderActive(true, false, false, false);
+		model.renderActive(
+				castTileEntity.getSignalActive(ForgeDirection.NORTH),
+				castTileEntity.getSignalActive(ForgeDirection.EAST),
+				castTileEntity.getSignalActive(ForgeDirection.SOUTH),
+				castTileEntity.getSignalActive(ForgeDirection.WEST)
+		);
 
 		GL11.glPopMatrix();
 	}

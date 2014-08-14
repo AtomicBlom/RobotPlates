@@ -2,13 +2,12 @@ package net.binaryvibrance.robotplates.block;
 
 import net.binaryvibrance.robotplates.reference.RenderIds;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateCodePath;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateConditional;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPlateCodePath extends BlockRobotPlate implements ITileEntityProvider {
+public class BlockPlateCodePath extends RobotPlateBlockBase implements ITileEntityProvider {
 	public BlockPlateCodePath() {
 		super(Material.rock);
 		this.setBlockName("plateCodePath");

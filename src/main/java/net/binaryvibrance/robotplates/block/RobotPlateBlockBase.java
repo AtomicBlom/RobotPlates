@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.binaryvibrance.robotplates.creativetab.CreativeTabRobotPlate;
 import net.binaryvibrance.robotplates.reference.Reference;
-import net.binaryvibrance.robotplates.tileentity.TileEntityRobotPlates;
+import net.binaryvibrance.robotplates.tileentity.RobotPlatesTileEntityBase;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,8 +21,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
-public class BlockRobotPlate extends Block {
-	BlockRobotPlate(Material material) {
+public class RobotPlateBlockBase extends Block {
+	RobotPlateBlockBase(Material material) {
 		super(material);
 		this.setCreativeTab(CreativeTabRobotPlate.ROBOTPLATES_TAB);
 	}
@@ -44,6 +44,12 @@ public class BlockRobotPlate extends Block {
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
+		TileEntity tileEntity = world.getTileEntity(x, y, z);
+		if (tileEntity instanceof RobotPlatesTileEntityBase) {
+			RobotPlatesTileEntityBase rpTileEntity = (RobotPlatesTileEntityBase)tileEntity;
+			//Update neighbours.
+			rpTileEntity.checkUpdate(true);
+		}
 		dropInventory(world, x, y, z);
 		super.breakBlock(world, x, y, z, block, meta);
 	}
@@ -51,8 +57,8 @@ public class BlockRobotPlate extends Block {
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLiving, ItemStack itemStack) {
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if (tileEntity instanceof TileEntityRobotPlates) {
-			TileEntityRobotPlates rpTileEntity = (TileEntityRobotPlates)tileEntity;
+		if (tileEntity instanceof RobotPlatesTileEntityBase) {
+			RobotPlatesTileEntityBase rpTileEntity = (RobotPlatesTileEntityBase)tileEntity;
 			int direction = 0;
 			int facing = MathHelper.floor_double((entityLiving.rotationYaw + 180.0f) * 4.0F / 360.0F + 0.5D) & 3;
 
@@ -73,7 +79,9 @@ public class BlockRobotPlate extends Block {
 			if (itemStack.hasDisplayName()) {
 				rpTileEntity.setCustomName(itemStack.getDisplayName());
 			}
-			rpTileEntity.setOrientation(direction);
+
+			//rpTileEntity.setOrientation(direction);
+			rpTileEntity.checkUpdate(false);
 		}
 	}
 

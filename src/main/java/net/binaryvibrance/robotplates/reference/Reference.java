@@ -7,4 +7,6 @@ public abstract class Reference {
 
 	public static final String CLIENT_PROXY_CLASS = "net.binaryvibrance.robotplates.proxy.ClientProxy";
 	public static final String SERVER_PROXY_CLASS = "net.binaryvibrance.robotplates.proxy.ServerProxy";
+
+
 }

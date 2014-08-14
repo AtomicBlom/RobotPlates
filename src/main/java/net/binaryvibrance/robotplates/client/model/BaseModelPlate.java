@@ -35,7 +35,7 @@ public abstract class BaseModelPlate implements IDebugReloadable {
 		}
 	}
 
-	public void renderActive(boolean north, boolean south, boolean east, boolean west) {
+	public void renderActive(boolean north, boolean east, boolean south, boolean west) {
 		if (north) {
 			model.renderPart("Active_North");
 		}

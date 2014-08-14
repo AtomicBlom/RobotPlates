@@ -5,7 +5,7 @@ import net.minecraft.world.World;
 
 import java.util.UUID;
 
-public abstract class EntityRobotBase extends RobotPlatesEntity {
+public abstract class EntityRobotBase extends RobotPlatesEntityBase {
 	private final UUID id;
 	private Program program;
 	private int detectionRange;

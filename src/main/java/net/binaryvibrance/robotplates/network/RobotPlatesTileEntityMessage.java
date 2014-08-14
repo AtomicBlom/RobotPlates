@@ -5,27 +5,27 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import io.netty.buffer.ByteBuf;
-import net.binaryvibrance.robotplates.tileentity.TileEntityRobotPlates;
+import net.binaryvibrance.robotplates.tileentity.RobotPlatesTileEntityBase;
 import net.minecraft.tileentity.TileEntity;
 
-public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<MessageTileEntityRobotPlates, IMessage> {
+public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<RobotPlatesTileEntityMessage, IMessage> {
 	private int x, y, z;
 	private byte orientation, state;
 	private String customName, owner;
 
 	@SuppressWarnings("UnusedDeclaration")
-	public MessageTileEntityRobotPlates() {
+	public RobotPlatesTileEntityMessage() {
 	}
 
 	@SuppressWarnings("UnusedDeclaration")
-	public MessageTileEntityRobotPlates(TileEntityRobotPlates tileEntityEE) {
-		this.x = tileEntityEE.xCoord;
-		this.y = tileEntityEE.yCoord;
-		this.z = tileEntityEE.zCoord;
-		this.orientation = (byte) tileEntityEE.getOrientation().ordinal();
-		this.state = (byte) tileEntityEE.getState();
-		this.customName = tileEntityEE.getCustomName();
-		this.owner = tileEntityEE.getOwner();
+	public RobotPlatesTileEntityMessage(RobotPlatesTileEntityBase rpTileEntity) {
+		this.x = rpTileEntity.xCoord;
+		this.y = rpTileEntity.yCoord;
+		this.z = rpTileEntity.zCoord;
+		this.orientation = (byte) rpTileEntity.getOrientation().ordinal();
+		this.state = (byte) rpTileEntity.getState();
+		this.customName = rpTileEntity.getCustomName();
+		this.owner = rpTileEntity.getOwner();
 	}
 
 	@Override
@@ -55,12 +55,12 @@ public class MessageTileEntityRobotPlates implements IMessage, IMessageHandler<M
 	}
 
 	@Override
-	public IMessage onMessage(MessageTileEntityRobotPlates message, MessageContext ctx) {
+	public IMessage onMessage(RobotPlatesTileEntityMessage message, MessageContext ctx) {
 		TileEntity untypedTileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.x, message.y, message.z);
 
-		if (untypedTileEntity instanceof TileEntityRobotPlates) {
+		if (untypedTileEntity instanceof RobotPlatesTileEntityBase) {
 
-			TileEntityRobotPlates tileEntity = (TileEntityRobotPlates) untypedTileEntity;
+			RobotPlatesTileEntityBase tileEntity = (RobotPlatesTileEntityBase) untypedTileEntity;
 			tileEntity.setOrientation(message.orientation);
 			tileEntity.setState(message.state);
 			tileEntity.setCustomName(message.customName);
