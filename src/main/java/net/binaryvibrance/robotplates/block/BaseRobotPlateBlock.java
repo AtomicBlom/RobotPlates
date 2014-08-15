@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.binaryvibrance.robotplates.creativetab.CreativeTabRobotPlate;
 import net.binaryvibrance.robotplates.reference.Reference;
-import net.binaryvibrance.robotplates.tileentity.RobotPlatesTileEntityBase;
+import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -21,8 +21,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
-public class RobotPlateBlockBase extends Block {
-	RobotPlateBlockBase(Material material) {
+public class BaseRobotPlateBlock extends Block {
+	BaseRobotPlateBlock(Material material) {
 		super(material);
 		this.setCreativeTab(CreativeTabRobotPlate.ROBOTPLATES_TAB);
 	}
@@ -45,8 +45,8 @@ public class RobotPlateBlockBase extends Block {
 	@Override
 	public void breakBlock(World world, int x, int y, int z, Block block, int meta) {
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if (tileEntity instanceof RobotPlatesTileEntityBase) {
-			RobotPlatesTileEntityBase rpTileEntity = (RobotPlatesTileEntityBase)tileEntity;
+		if (tileEntity instanceof BaseRobotPlatesTileEntity) {
+			BaseRobotPlatesTileEntity rpTileEntity = (BaseRobotPlatesTileEntity)tileEntity;
 			//Update neighbours.
 			rpTileEntity.checkUpdate(true);
 		}
@@ -57,8 +57,8 @@ public class RobotPlateBlockBase extends Block {
 	@Override
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityLiving, ItemStack itemStack) {
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
-		if (tileEntity instanceof RobotPlatesTileEntityBase) {
-			RobotPlatesTileEntityBase rpTileEntity = (RobotPlatesTileEntityBase)tileEntity;
+		if (tileEntity instanceof BaseRobotPlatesTileEntity) {
+			BaseRobotPlatesTileEntity rpTileEntity = (BaseRobotPlatesTileEntity)tileEntity;
 			int direction = 0;
 			int facing = MathHelper.floor_double((entityLiving.rotationYaw + 180.0f) * 4.0F / 360.0F + 0.5D) & 3;
 

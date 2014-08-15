@@ -8,7 +8,7 @@ public final class ModItems {
 	public static final ItemComponentContainer COMPONENT_CONTAINER = new ItemComponentContainer();
 
 	//Tools
-	public static final ItemRobotPlate TOOL_REMOTE_DEBUGGER = new ItemToolRemoteDebugger();
+	public static final BaseRobotPlateItem TOOL_REMOTE_DEBUGGER = new ItemToolRemoteDebugger();
 	public static final ItemToolSolderingIron TOOL_SOLDERING_IRON = new ItemToolSolderingIron();
 
 	//Robots

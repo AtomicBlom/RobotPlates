@@ -2,7 +2,7 @@ package net.binaryvibrance.robotplates.programming.instructions.action;
 
 import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
-import net.binaryvibrance.robotplates.entity.EntityRobotBase;
+import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
 import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -23,7 +23,7 @@ public class ActionDetectPlayer implements IInstruction, IHaveInstructions {
 
 	@Override
 	public List<IInstruction> execute(ProgramState state) {
-		EntityRobotBase robot = state.getRobot();
+		BaseRobotPlatesEntityRobot robot = state.getRobot();
 		World world = state.getWorld();
 		int range = robot.getDetectionRange();
 

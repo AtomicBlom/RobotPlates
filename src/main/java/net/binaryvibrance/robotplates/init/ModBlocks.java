@@ -6,11 +6,11 @@ import net.binaryvibrance.robotplates.reference.Reference;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public final class ModBlocks {
-	public static final RobotPlateBlockBase plateAction = new BlockPlateAction();
-	public static final RobotPlateBlockBase plateConditional = new BlockPlateConditional();
-	public static final RobotPlateBlockBase plateCodePath = new BlockPlateCodePath();
-	public static final RobotPlateBlockBase plateEvent = new BlockPlateEvent();
-	public static final RobotPlateBlockBase plateProgrammer = new BlockPlateProgrammer();
+	public static final BaseRobotPlateBlock plateAction = new BlockPlateAction();
+	public static final BaseRobotPlateBlock plateConditional = new BlockPlateConditional();
+	public static final BaseRobotPlateBlock plateCodePath = new BlockPlateCodePath();
+	public static final BaseRobotPlateBlock plateEvent = new BlockPlateEvent();
+	public static final BaseRobotPlateBlock plateProgrammer = new BlockPlateProgrammer();
 
 	private ModBlocks() {
 	}

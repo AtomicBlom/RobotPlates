@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockPlateAction extends RobotPlateBlockBase implements ITileEntityProvider {
+public class BlockPlateAction extends BaseRobotPlateBlock implements ITileEntityProvider {
 	public BlockPlateAction() {
 		super(Material.rock);
 		this.setBlockName("plateAction");

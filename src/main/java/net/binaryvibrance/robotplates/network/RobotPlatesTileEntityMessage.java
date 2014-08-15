@@ -5,20 +5,22 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import io.netty.buffer.ByteBuf;
-import net.binaryvibrance.robotplates.tileentity.RobotPlatesTileEntityBase;
+import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<RobotPlatesTileEntityMessage, IMessage> {
 	private int x, y, z;
 	private byte orientation, state;
 	private String customName, owner;
+	private boolean[] activeSignals;
 
 	@SuppressWarnings("UnusedDeclaration")
 	public RobotPlatesTileEntityMessage() {
+		activeSignals = new boolean[4];
 	}
 
 	@SuppressWarnings("UnusedDeclaration")
-	public RobotPlatesTileEntityMessage(RobotPlatesTileEntityBase rpTileEntity) {
+	public RobotPlatesTileEntityMessage(BaseRobotPlatesTileEntity rpTileEntity) {
 		this.x = rpTileEntity.xCoord;
 		this.y = rpTileEntity.yCoord;
 		this.z = rpTileEntity.zCoord;
@@ -26,6 +28,7 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 		this.state = (byte) rpTileEntity.getState();
 		this.customName = rpTileEntity.getCustomName();
 		this.owner = rpTileEntity.getOwner();
+
 	}
 
 	@Override
@@ -58,9 +61,9 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 	public IMessage onMessage(RobotPlatesTileEntityMessage message, MessageContext ctx) {
 		TileEntity untypedTileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.x, message.y, message.z);
 
-		if (untypedTileEntity instanceof RobotPlatesTileEntityBase) {
+		if (untypedTileEntity instanceof BaseRobotPlatesTileEntity) {
 
-			RobotPlatesTileEntityBase tileEntity = (RobotPlatesTileEntityBase) untypedTileEntity;
+			BaseRobotPlatesTileEntity tileEntity = (BaseRobotPlatesTileEntity) untypedTileEntity;
 			tileEntity.setOrientation(message.orientation);
 			tileEntity.setState(message.state);
 			tileEntity.setCustomName(message.customName);

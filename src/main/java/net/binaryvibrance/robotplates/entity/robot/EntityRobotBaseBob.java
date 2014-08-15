@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.entity.robot;
 
-import net.binaryvibrance.robotplates.entity.EntityRobotBase;
+import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
 import net.binaryvibrance.robotplates.programming.instructions.Container;
 import net.binaryvibrance.robotplates.programming.instructions.Program;
 import net.binaryvibrance.robotplates.programming.instructions.action.ActionDetectPlayer;
@@ -12,7 +12,7 @@ import net.binaryvibrance.robotplates.programming.instructions.event.EventTick;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-public class EntityRobotBaseBob extends EntityRobotBase {
+public class EntityRobotBaseBob extends BaseRobotPlatesEntityRobot {
 	public EntityRobotBaseBob(World world) {
 		super(world);
 		setDetectionRange(50);

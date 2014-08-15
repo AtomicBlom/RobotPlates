@@ -2,7 +2,7 @@ package net.binaryvibrance.robotplates.programming.instructions.action;
 
 import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
-import net.binaryvibrance.robotplates.entity.EntityRobotBase;
+import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
 import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
 import net.binaryvibrance.robotplates.utility.RobotLookHelper;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,7 +23,7 @@ public class ActionTurnTo implements IInstruction, IHaveInstructions {
 		EntityPlayer player = (EntityPlayer) state.getState(EntityPlayer.class);
 
 		if (player != null) {
-			EntityRobotBase robot = state.getRobot();
+			BaseRobotPlatesEntityRobot robot = state.getRobot();
 
 			/*double deltaX = robot.posX - player.posX;
 			double deltaY = robot.posX - player.posY;

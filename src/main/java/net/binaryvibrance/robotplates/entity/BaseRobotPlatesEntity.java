@@ -5,9 +5,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public abstract class RobotPlatesEntityBase extends Entity {
+public abstract class BaseRobotPlatesEntity extends Entity {
 
-	RobotPlatesEntityBase(World world) {
+	BaseRobotPlatesEntity(World world) {
 		super(world);
 	}
 

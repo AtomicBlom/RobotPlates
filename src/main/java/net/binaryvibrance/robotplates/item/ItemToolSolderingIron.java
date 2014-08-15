@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
 
-public class ItemToolSolderingIron extends ItemRobotPlate {
+public class ItemToolSolderingIron extends BaseRobotPlateItem {
 	public ItemToolSolderingIron() {
 		super();
 		this.setUnlocalizedName("toolSolderingIron");

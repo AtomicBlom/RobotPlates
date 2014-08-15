@@ -1,7 +1,7 @@
 package net.binaryvibrance.robotplates.programming.event;
 
 import cpw.mods.fml.common.Mod;
-import net.binaryvibrance.robotplates.entity.EntityRobotBase;
+import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
 public class EventPlayerInRangeHandler {
@@ -15,7 +15,7 @@ public class EventPlayerInRangeHandler {
 
 	}
 
-	public void RegisterForEvent(EntityRobotBase robot) {
+	public void RegisterForEvent(BaseRobotPlatesEntityRobot robot) {
 
 	}
 }

@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.item;
 
-public class ItemToolRemoteDebugger extends ItemRobotPlate {
+public class ItemToolRemoteDebugger extends BaseRobotPlateItem {
 	public ItemToolRemoteDebugger() {
 		super();
 		this.setUnlocalizedName("toolRemoteDebugger");

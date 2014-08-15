@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemRobotPlate extends Item {
-	ItemRobotPlate() {
+public class BaseRobotPlateItem extends Item {
+	BaseRobotPlateItem() {
 		super();
 		this.setCreativeTab(CreativeTabRobotPlate.ROBOTPLATES_TAB);
 	}
