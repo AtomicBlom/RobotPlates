@@ -41,7 +41,7 @@ public abstract class BasePlateItemRenderer implements IItemRenderer {
 				return;
 			}
 			case INVENTORY: {
-				renderInternal(-0.5F, -0.8F, -0.5F);
+				renderInternal(-0.5F, -0.5F, -0.5F);
 				return;
 			}
 			default:
