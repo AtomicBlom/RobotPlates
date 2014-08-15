@@ -28,7 +28,10 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 		this.state = (byte) rpTileEntity.getState();
 		this.customName = rpTileEntity.getCustomName();
 		this.owner = rpTileEntity.getOwner();
-
+		this.activeSignals = new boolean[rpTileEntity.activeSignals.length];
+		for (int i = 0; i < rpTileEntity.activeSignals.length; ++i) {
+			this.activeSignals[i] = rpTileEntity.activeSignals[i];
+		}
 	}
 
 	@Override
@@ -42,6 +45,9 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 		this.customName = new String(buf.readBytes(customNameLength).array());
 		int ownerLength = buf.readInt();
 		this.owner = new String(buf.readBytes(ownerLength).array());
+		for (int i = 0; i < activeSignals.length; ++i) {
+			this.activeSignals[i] = buf.readBoolean();
+		}
 	}
 
 	@Override
@@ -55,6 +61,9 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 		buf.writeBytes(customName.getBytes());
 		buf.writeInt(owner.length());
 		buf.writeBytes(owner.getBytes());
+		for (int i = 0; i < activeSignals.length; ++i) {
+			buf.writeBoolean(this.activeSignals[i]);
+		}
 	}
 
 	@Override
@@ -68,6 +77,9 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 			tileEntity.setState(message.state);
 			tileEntity.setCustomName(message.customName);
 			tileEntity.setOwner(message.owner);
+			for (int i = 0; i < activeSignals.length; ++i) {
+				tileEntity.activeSignals[i] = message.activeSignals[i];
+			}
 		}
 
 		return null;

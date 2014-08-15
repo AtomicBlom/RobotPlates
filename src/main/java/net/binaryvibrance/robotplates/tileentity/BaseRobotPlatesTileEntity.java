@@ -15,7 +15,7 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 	protected String customName;
 	protected String owner;
 
-	protected boolean[] signalActive = new boolean[7];
+	public boolean[] activeSignals = new boolean[4];
 
 	BaseRobotPlatesTileEntity() {
 		orientation = ForgeDirection.NORTH;
@@ -113,10 +113,17 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 
 	public void checkUpdate(BaseRobotPlatesTileEntity neighbour, CompassDirection directionToNeighbour) {
 		//This should be based on the direction of the signal.
+		int ordinal = directionToNeighbour.ordinal();
+		boolean updated;
 		if (neighbour == null) {
-			signalActive[directionToNeighbour.ordinal()] = false;
+			updated = activeSignals[ordinal] != false;
+			activeSignals[ordinal] = false;
 		} else {
-			signalActive[directionToNeighbour.ordinal()] = true;
+			updated = activeSignals[ordinal] != true;
+			activeSignals[ordinal] = true;
+		}
+		if (updated) {
+			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
 	}
 
@@ -127,14 +134,14 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 			if (tileEntity instanceof BaseRobotPlatesTileEntity) {
 				BaseRobotPlatesTileEntity robotPlatesTileEntity = (BaseRobotPlatesTileEntity)tileEntity;
 				robotPlatesTileEntity.checkUpdate(deleting ? null : this, direction.getOpposite());
-				signalActive[direction.ordinal()] = true;
+				activeSignals[direction.ordinal()] = true;
 			} else {
-				signalActive[direction.ordinal()] = false;
+				activeSignals[direction.ordinal()] = false;
 			}
 		}
 	}
 
 	public boolean getSignalActive(CompassDirection direction) {
-		return signalActive[direction.ordinal()];
+		return activeSignals[direction.ordinal()];
 	}
 }
