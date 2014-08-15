@@ -10,6 +10,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 public abstract class BasePlateTileEntityRenderer<T extends BaseRobotPlatesTileEntity> extends TileEntitySpecialRenderer {
 	protected final BaseModelPlate model;
 
@@ -19,8 +22,6 @@ public abstract class BasePlateTileEntityRenderer<T extends BaseRobotPlatesTileE
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float tick) {
-		if (!(tileEntity instanceof TileEntityPlateEvent)) return;
-
 		T castTileEntity = (T) tileEntity;
 
 		GL11.glPushMatrix();
