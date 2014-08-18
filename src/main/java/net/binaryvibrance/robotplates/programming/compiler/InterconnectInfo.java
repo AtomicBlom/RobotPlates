@@ -6,15 +6,16 @@ import net.binaryvibrance.robotplates.utility.CompassDirection;
 import java.util.HashMap;
 
 class InterconnectInfo {
-	private final BaseRobotPlatesTileEntity tileEntity;
-	private final HashMap<CompassDirection, BaseRobotPlatesTileEntity> neighbour = new HashMap<CompassDirection, BaseRobotPlatesTileEntity>();
+	final BaseRobotPlatesTileEntity tileEntity;
+	final HashMap<CompassDirection, InterconnectInfo> neighbour = new HashMap<CompassDirection, InterconnectInfo>();
+	public CodePath codePath;
 
 	public InterconnectInfo(BaseRobotPlatesTileEntity tileEntity) {
 
 		this.tileEntity = tileEntity;
 	}
 
-	public void assignNeighbour(CompassDirection direction, BaseRobotPlatesTileEntity neighbourTileEntity) {
+	public void assignNeighbour(CompassDirection direction, InterconnectInfo neighbourTileEntity) {
 		neighbour.put(direction, neighbourTileEntity);
 	}
 }

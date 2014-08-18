@@ -3,6 +3,7 @@ package net.binaryvibrance.robotplates.programming.compiler;
 import net.binaryvibrance.robotplates.programming.instructions.Program;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateCodePath;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateConditional;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
 import net.binaryvibrance.robotplates.utility.LogHelper;
@@ -13,6 +14,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class PlateCompiler {
+	HashMap<BaseRobotPlatesTileEntity, InterconnectInfo> interconnects = new HashMap<BaseRobotPlatesTileEntity, InterconnectInfo>();
+
 	public void compile(TileEntityPlateProgrammer programmerPlate, World world) {
 		readBlocksFromWorld(programmerPlate, world);
 		createCodePaths();
@@ -23,11 +26,41 @@ public class PlateCompiler {
 	}
 
 	private void createCodePaths() {
+		for (InterconnectInfo interconnect : interconnects.values()) {
+			if (interconnect.tileEntity instanceof TileEntityPlateCodePath) {
+				CodePath locatedCodePath = null;
+				for (InterconnectInfo neighbour : interconnect.neighbour.values()) {
+					if (neighbour.codePath != null) {
+						if (locatedCodePath == null) {
+							//Found a current chain of interconnects making up a code path.
+							CodePath codePath = neighbour.codePath;
+							locatedCodePath = codePath;
+						} else if (locatedCodePath != neighbour.codePath) {
+							//Found a second chain of interconnects that should be the same code path, unify them.
+							for (InterconnectInfo ic : neighbour.codePath.interconnects) {
+								ic.codePath = locatedCodePath;
+								locatedCodePath.interconnects.addLast(ic);
+							}
+							neighbour.codePath = locatedCodePath;
+						}
+
+					}
+				}
+
+				if (locatedCodePath == null) {
+					locatedCodePath = new CodePath();
+				}
+
+				locatedCodePath.interconnects.add(interconnect);
+				interconnect.codePath = locatedCodePath;
+			}
+
+		}
 	}
 
 	private void readBlocksFromWorld(TileEntityPlateProgrammer programmerPlate, World world) {
 		HashSet<BaseRobotPlatesTileEntity> processedBlocks = new HashSet<BaseRobotPlatesTileEntity>();
-		HashMap<BaseRobotPlatesTileEntity, InterconnectInfo> interconnects = new HashMap<BaseRobotPlatesTileEntity, InterconnectInfo>();
+
 		ModifiableLinkedList<BaseRobotPlatesTileEntity> blocksToProcess = new ModifiableLinkedList<BaseRobotPlatesTileEntity>();
 		blocksToProcess.add(programmerPlate);
 		ModifiableLinkedList<BaseRobotPlatesTileEntity>.Node currentNode = blocksToProcess.beforeFirstNode();
@@ -52,8 +85,15 @@ public class PlateCompiler {
 						currentTileEntity.zCoord + direction.offsetZ);
 				if (tileEntity != null && tileEntity instanceof BaseRobotPlatesTileEntity && !processedBlocks.contains(tileEntity)) {
 					BaseRobotPlatesTileEntity neighbour = (BaseRobotPlatesTileEntity) tileEntity;
+					InterconnectInfo neighbourInterconnect;
+					if (interconnects.containsKey(neighbour)) {
+						neighbourInterconnect = interconnects.get(neighbour);
+					} else {
+						neighbourInterconnect = new InterconnectInfo(neighbour);
+						interconnects.put(neighbour, neighbourInterconnect);
+					}
 					currentNode.addLast(neighbour);
-					interconnect.assignNeighbour(direction, neighbour);
+					interconnect.assignNeighbour(direction, neighbourInterconnect);
 				}
 			}
 
