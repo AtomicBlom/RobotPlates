@@ -1,6 +1,5 @@
 package net.binaryvibrance.robotplates.block;
 
-import net.binaryvibrance.robotplates.programming.PlateCompiler;
 import net.binaryvibrance.robotplates.reference.RenderIds;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
 import net.binaryvibrance.robotplates.utility.LogHelper;
