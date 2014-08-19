@@ -26,35 +26,40 @@ public class PlateCompiler {
 	}
 
 	private void createCodePaths() {
+		HashSet<CodePath> codePaths = new HashSet<CodePath>();
+
 		for (InterconnectInfo interconnect : interconnects.values()) {
-			if (interconnect.tileEntity instanceof TileEntityPlateCodePath) {
-				CodePath locatedCodePath = null;
-				for (InterconnectInfo neighbour : interconnect.neighbour.values()) {
-					if (neighbour.codePath != null) {
-						if (locatedCodePath == null) {
-							//Found a current chain of interconnects making up a code path.
-							CodePath codePath = neighbour.codePath;
-							locatedCodePath = codePath;
-						} else if (locatedCodePath != neighbour.codePath) {
-							//Found a second chain of interconnects that should be the same code path, unify them.
-							for (InterconnectInfo ic : neighbour.codePath.interconnects) {
-								ic.codePath = locatedCodePath;
-								locatedCodePath.interconnects.addLast(ic);
-							}
-							neighbour.codePath = locatedCodePath;
-						}
-
-					}
-				}
-
-				if (locatedCodePath == null) {
-					locatedCodePath = new CodePath();
-				}
-
-				locatedCodePath.interconnects.add(interconnect);
-				interconnect.codePath = locatedCodePath;
+			if (!(interconnect.tileEntity instanceof TileEntityPlateCodePath)) {
+				continue;
 			}
 
+			CodePath locatedCodePath = null;
+			for (InterconnectInfo neighbour : interconnect.neighbour.values()) {
+				if (neighbour.codePath == null) {
+					continue;
+				}
+				if (locatedCodePath == null) {
+					//Found a current chain of interconnects making up a code path.
+					locatedCodePath = neighbour.codePath;
+				} else if (locatedCodePath != neighbour.codePath) {
+					//Found a second chain of interconnects that should be the same code path, unify them.
+					CodePath duplicateCodePath = neighbour.codePath;
+					duplicateCodePath.merge(locatedCodePath);
+					codePaths.remove(neighbour.codePath);
+				}
+			}
+
+			if (locatedCodePath == null) {
+				locatedCodePath = new CodePath();
+				codePaths.add(locatedCodePath);
+			}
+
+			locatedCodePath.interconnects.add(interconnect);
+			interconnect.codePath = locatedCodePath;
+		}
+
+		for (CodePath cp : codePaths) {
+			LogHelper.info("Found CodePath with %d potential entry points", cp.interconnects.size());
 		}
 	}
 
