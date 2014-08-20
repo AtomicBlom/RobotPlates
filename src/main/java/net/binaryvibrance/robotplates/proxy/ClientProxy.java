@@ -2,6 +2,8 @@ package net.binaryvibrance.robotplates.proxy;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.eventhandler.EventBus;
+import net.binaryvibrance.robotplates.client.BlockHoverHelper;
 import net.binaryvibrance.robotplates.client.renderer.entity.EntityRendererRobotBob;
 import net.binaryvibrance.robotplates.client.renderer.item.*;
 import net.binaryvibrance.robotplates.client.renderer.tileentity.*;
@@ -12,6 +14,7 @@ import net.binaryvibrance.robotplates.reference.RenderIds;
 import net.binaryvibrance.robotplates.tileentity.*;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
 	@Override
@@ -47,5 +50,10 @@ public class ClientProxy extends CommonProxy {
 
 		//Entity Renderer
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobotBaseBob.class, new EntityRendererRobotBob());
+	}
+
+	@Override
+	public void registerEventHandlers(EventBus bus) {
+		MinecraftForge.EVENT_BUS.register(BlockHoverHelper.getInstance());
 	}
 }

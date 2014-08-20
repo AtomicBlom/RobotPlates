@@ -1,5 +1,6 @@
 package net.binaryvibrance.robotplates;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -26,7 +27,9 @@ public class RobotPlates {
 		ModItems.init();
 		ModBlocks.init();
 		ModEntities.init();
-		ModEventHandlers.init();
+
+		ModSubObjects.instance().reload();
+
 		LogHelper.info("Pre Initialization Complete");
 	}
 
@@ -34,6 +37,7 @@ public class RobotPlates {
 	public void init(FMLInitializationEvent event) {
 		proxy.registerTileEntities();
 		proxy.initRenderingAndTextures();
+		proxy.registerEventHandlers(FMLCommonHandler.instance().bus());
 
 		LogHelper.info("Initialization Complete");
 	}

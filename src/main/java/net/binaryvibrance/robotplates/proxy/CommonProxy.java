@@ -13,4 +13,11 @@ public abstract class CommonProxy implements IProxy {
 		GameRegistry.registerTileEntity(TileEntityPlateEvent.class, Names.Blocks.PLATE_EVENT);
 		GameRegistry.registerTileEntity(TileEntityPlateProgrammer.class, Names.Blocks.PLATE_PROGRAMMER);
 	}
+
+	@Override
+	public void initRenderingAndTextures() {
+		//No-op
+	}
+
+
 }

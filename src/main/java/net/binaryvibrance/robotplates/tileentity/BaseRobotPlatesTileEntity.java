@@ -1,12 +1,16 @@
 package net.binaryvibrance.robotplates.tileentity;
 
+import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
 import net.binaryvibrance.robotplates.init.ModPackets;
 import net.binaryvibrance.robotplates.network.RobotPlatesTileEntityMessage;
 import net.binaryvibrance.robotplates.reference.Names;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
+import net.binaryvibrance.robotplates.utility.IDebugReloadable;
+import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.Vec3;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class BaseRobotPlatesTileEntity extends TileEntity {
@@ -22,6 +26,10 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 		state = 0;
 		customName = "";
 		owner = "";
+	}
+
+	protected SubObject[] getSubObjects() {
+		return new SubObject[0];
 	}
 
 	public ForgeDirection getOrientation() {
@@ -143,5 +151,14 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 
 	public boolean getSignalActive(CompassDirection direction) {
 		return activeSignals[direction.ordinal()];
+	}
+
+	public SubObject getSubObject(Vec3 hitVec) {
+		for (SubObject subObject : getSubObjects()) {
+			if (subObject.getBoundingBox().isVecInside(hitVec)) {
+				return subObject;
+			}
+		}
+		return null;
 	}
 }

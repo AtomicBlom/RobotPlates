@@ -12,7 +12,7 @@ public final class ModEventHandlers {
 	public static void init() {
 		//FMLCommonHandler.instance().bus().register(eventPlayerInRangeHandler);
 
-		FMLCommonHandler.instance().bus().register(TickEventHandler.getInstance());
+
 	}
 
 }
