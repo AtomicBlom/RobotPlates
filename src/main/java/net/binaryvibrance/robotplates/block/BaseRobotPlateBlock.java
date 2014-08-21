@@ -5,17 +5,20 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.binaryvibrance.robotplates.creativetab.CreativeTabRobotPlate;
 import net.binaryvibrance.robotplates.reference.Reference;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -52,6 +55,18 @@ public class BaseRobotPlateBlock extends Block {
 		}
 		dropInventory(world, x, y, z);
 		super.breakBlock(world, x, y, z, block, meta);
+	}
+
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float px, float py, float pz) {
+		if (world.isRemote) {
+			return true;
+		}
+
+		BaseRobotPlatesTileEntity tileEntity = (BaseRobotPlatesTileEntity) world.getTileEntity(x, y, z);
+
+		return tileEntity.onActivated(world, x, y, z, player, side, px, py, pz);
+
 	}
 
 	@Override

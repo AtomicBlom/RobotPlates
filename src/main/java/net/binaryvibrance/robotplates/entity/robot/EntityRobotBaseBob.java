@@ -1,14 +1,14 @@
 package net.binaryvibrance.robotplates.entity.robot;
 
 import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
-import net.binaryvibrance.robotplates.programming.instructions.Container;
-import net.binaryvibrance.robotplates.programming.instructions.Program;
-import net.binaryvibrance.robotplates.programming.instructions.action.ActionDetectPlayer;
-import net.binaryvibrance.robotplates.programming.instructions.action.ActionGetContainerValue;
-import net.binaryvibrance.robotplates.programming.instructions.action.ActionSetContainerValue;
-import net.binaryvibrance.robotplates.programming.instructions.action.ActionTurnTo;
-import net.binaryvibrance.robotplates.programming.instructions.conditional.ConditionalContainerEmpty;
-import net.binaryvibrance.robotplates.programming.instructions.event.EventTick;
+import net.binaryvibrance.robotplates.program.variable.Container;
+import net.binaryvibrance.robotplates.program.Program;
+import net.binaryvibrance.robotplates.program.instructionset.action.ActionDetectPlayer;
+import net.binaryvibrance.robotplates.program.instructionset.action.ActionGetContainerValue;
+import net.binaryvibrance.robotplates.program.instructionset.action.ActionSetContainerValue;
+import net.binaryvibrance.robotplates.program.instructionset.action.ActionTurnTo;
+import net.binaryvibrance.robotplates.program.instructionset.conditional.ConditionalContainerEmpty;
+import net.binaryvibrance.robotplates.program.instructionset.event.EventTick;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

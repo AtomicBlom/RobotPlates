@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.api.programming;
 
-import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
+import net.binaryvibrance.robotplates.program.ProgramState;
 
 import java.util.List;
 

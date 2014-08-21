@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.compiler;
+package net.binaryvibrance.robotplates.compiler;
 
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.binaryvibrance.robotplates.utility.CompassDirection;

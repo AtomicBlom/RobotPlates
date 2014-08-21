@@ -1,9 +1,7 @@
-package net.binaryvibrance.robotplates.programming.compiler;
+package net.binaryvibrance.robotplates.compiler;
 
-import net.binaryvibrance.robotplates.programming.instructions.Program;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateCodePath;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateConditional;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
 import net.binaryvibrance.robotplates.utility.LogHelper;

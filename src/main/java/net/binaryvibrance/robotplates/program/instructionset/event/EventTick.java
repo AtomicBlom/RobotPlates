@@ -1,7 +1,7 @@
-package net.binaryvibrance.robotplates.programming.instructions.event;
+package net.binaryvibrance.robotplates.program.instructionset.event;
 
 import net.binaryvibrance.robotplates.api.programming.*;
-import net.binaryvibrance.robotplates.programming.eventHandler.TickEventHandler;
+import net.binaryvibrance.robotplates.server.handler.TickEventHandler;
 
 import java.util.LinkedList;
 import java.util.List;

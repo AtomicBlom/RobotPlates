@@ -38,21 +38,4 @@ public class BlockPlateProgrammer extends BaseRobotPlateBlock implements ITileEn
 	public TileEntity createNewTileEntity(World world, int metaData) {
 		return new TileEntityPlateProgrammer();
 	}
-
-	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float px, float py, float pz) {
-		if (world.isRemote) {
-			return true;
-		}
-
-		LogHelper.info("Create Blocks");
-
-		TileEntityPlateProgrammer tileEntity = (TileEntityPlateProgrammer) world.getTileEntity(x, y, z);
-		tileEntity.triggerCompile();
-
-
-
-
-		return true;
-	}
 }

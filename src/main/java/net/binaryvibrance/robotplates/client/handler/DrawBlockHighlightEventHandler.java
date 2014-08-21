@@ -1,23 +1,20 @@
-package net.binaryvibrance.robotplates.client;
+package net.binaryvibrance.robotplates.client.handler;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
-import net.binaryvibrance.robotplates.client.renderer.tileentity.BasePlateTileEntityRenderer;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
-import net.binaryvibrance.robotplates.utility.LogHelper;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.DrawBlockHighlightEvent;
 
-public class BlockHoverHelper {
-	private static BlockHoverHelper ourInstance = new BlockHoverHelper();
-	public static BlockHoverHelper getInstance() {
+public class DrawBlockHighlightEventHandler {
+	private static DrawBlockHighlightEventHandler ourInstance = new DrawBlockHighlightEventHandler();
+	public static DrawBlockHighlightEventHandler getInstance() {
 		return ourInstance;
 	}
-	private BlockHoverHelper() {}
+	private DrawBlockHighlightEventHandler() {}
 
 	@SubscribeEvent
 	public void onBlockHighlightEvent(DrawBlockHighlightEvent highlightEvent) {

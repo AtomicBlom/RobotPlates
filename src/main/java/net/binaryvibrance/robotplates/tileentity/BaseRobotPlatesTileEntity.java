@@ -7,10 +7,12 @@ import net.binaryvibrance.robotplates.reference.Names;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.binaryvibrance.robotplates.utility.LogHelper;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class BaseRobotPlatesTileEntity extends TileEntity {
@@ -160,5 +162,9 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 			}
 		}
 		return null;
+	}
+
+	public boolean onActivated(World world, int x, int y, int z, EntityPlayer player, int side, float px, float py, float pz) {
+		return false;
 	}
 }

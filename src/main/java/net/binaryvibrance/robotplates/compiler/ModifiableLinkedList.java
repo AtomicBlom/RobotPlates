@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.compiler;
+package net.binaryvibrance.robotplates.compiler;
 
 //Based on http://crunchify.com/how-to-implement-a-linkedlist-class-from-scratch-in-java/
 class ModifiableLinkedList<T> {

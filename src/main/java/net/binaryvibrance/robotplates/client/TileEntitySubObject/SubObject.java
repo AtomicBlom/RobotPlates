@@ -33,12 +33,12 @@ public class SubObject {
 		GL11.glLineWidth(2.0F);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
 		GL11.glDepthMask(false);
-
+		float e = 0.01f;
 		AxisAlignedBB drawBoundingBox =  AxisAlignedBB.getBoundingBox(
 				(double)tileEntity.xCoord + boundingBox.minX, (double)tileEntity.yCoord + boundingBox.minY, (double)tileEntity.zCoord + boundingBox.minZ,
 				(double)tileEntity.xCoord + boundingBox.maxX, (double)tileEntity.yCoord + boundingBox.maxY, (double)tileEntity.zCoord + boundingBox.maxZ);
 
-		RenderGlobal.drawOutlinedBoundingBox(drawBoundingBox.getOffsetBoundingBox(-d0, -d1, -d2), -1);
+		RenderGlobal.drawOutlinedBoundingBox(drawBoundingBox.expand(e, e, e).getOffsetBoundingBox(-d0, -d1, -d2), -1);
 
 		GL11.glDepthMask(true);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);

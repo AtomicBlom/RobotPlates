@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.instructions;
+package net.binaryvibrance.robotplates.program.variable;
 
 import net.binaryvibrance.robotplates.api.programming.IContainerOfT;
 

@@ -1,16 +1,17 @@
-package net.binaryvibrance.robotplates.programming.instructions;
+package net.binaryvibrance.robotplates.program.instructionset.conditional;
 
 import net.binaryvibrance.robotplates.api.programming.IHaveSuccessAndFailInstructions;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
+import net.binaryvibrance.robotplates.program.ProgramState;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class InstructionConditional implements IInstruction, IHaveSuccessAndFailInstructions {
+public abstract class BaseInstructionConditional implements IInstruction, IHaveSuccessAndFailInstructions {
 	private final List<IInstruction> successInstructions;
 	private final List<IInstruction> failInstructions;
 
-	protected InstructionConditional() {
+	protected BaseInstructionConditional() {
 		successInstructions = new LinkedList<IInstruction>();
 		failInstructions = new LinkedList<IInstruction>();
 	}

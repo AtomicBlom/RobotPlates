@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.compiler;
+package net.binaryvibrance.robotplates.compiler;
 
 import java.util.LinkedList;
 

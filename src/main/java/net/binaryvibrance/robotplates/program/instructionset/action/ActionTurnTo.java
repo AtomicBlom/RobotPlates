@@ -1,9 +1,9 @@
-package net.binaryvibrance.robotplates.programming.instructions.action;
+package net.binaryvibrance.robotplates.program.instructionset.action;
 
 import net.binaryvibrance.robotplates.api.programming.IHaveInstructions;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;
 import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
-import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
+import net.binaryvibrance.robotplates.program.ProgramState;
 import net.binaryvibrance.robotplates.utility.RobotLookHelper;
 import net.minecraft.entity.player.EntityPlayer;
 

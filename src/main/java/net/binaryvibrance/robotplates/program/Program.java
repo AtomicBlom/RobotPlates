@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.instructions;
+package net.binaryvibrance.robotplates.program;
 
 import net.binaryvibrance.robotplates.api.programming.IEvent;
 import net.binaryvibrance.robotplates.api.programming.IInstruction;

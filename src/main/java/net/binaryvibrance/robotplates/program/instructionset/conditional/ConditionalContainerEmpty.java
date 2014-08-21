@@ -1,11 +1,10 @@
-package net.binaryvibrance.robotplates.programming.instructions.conditional;
+package net.binaryvibrance.robotplates.program.instructionset.conditional;
 
 import net.binaryvibrance.robotplates.api.programming.IContainer;
 import net.binaryvibrance.robotplates.api.programming.IUseContainer;
-import net.binaryvibrance.robotplates.programming.instructions.InstructionConditional;
-import net.binaryvibrance.robotplates.programming.instructions.ProgramState;
+import net.binaryvibrance.robotplates.program.ProgramState;
 
-public class ConditionalContainerEmpty extends InstructionConditional implements IUseContainer {
+public class ConditionalContainerEmpty extends BaseInstructionConditional implements IUseContainer {
 	private IContainer container;
 
 	@Override

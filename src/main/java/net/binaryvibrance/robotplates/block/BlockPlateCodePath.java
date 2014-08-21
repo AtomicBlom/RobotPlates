@@ -34,4 +34,6 @@ public class BlockPlateCodePath extends BaseRobotPlateBlock implements ITileEnti
 	public TileEntity createNewTileEntity(World world, int metaData) {
 		return new TileEntityPlateCodePath();
 	}
+
+
 }

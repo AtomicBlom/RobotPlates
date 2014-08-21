@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.eventHandler;
+package net.binaryvibrance.robotplates.server.handler;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;

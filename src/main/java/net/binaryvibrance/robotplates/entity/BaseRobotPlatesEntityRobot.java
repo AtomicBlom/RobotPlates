@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.entity;
 
-import net.binaryvibrance.robotplates.programming.instructions.Program;
+import net.binaryvibrance.robotplates.program.Program;
 import net.minecraft.world.World;
 
 import java.util.UUID;

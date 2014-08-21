@@ -1,8 +1,7 @@
 package net.binaryvibrance.robotplates.proxy;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
-import net.binaryvibrance.robotplates.programming.eventHandler.TickEventHandler;
+import net.binaryvibrance.robotplates.server.handler.TickEventHandler;
 
 public class ServerProxy extends CommonProxy {
 

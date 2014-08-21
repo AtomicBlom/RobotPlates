@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.programming.instructions;
+package net.binaryvibrance.robotplates.program;
 
 import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntityRobot;
 import net.minecraft.entity.player.EntityPlayer;
