@@ -25,7 +25,7 @@ public class DrawBlockHighlightEventHandler {
 			TileEntity tileEntity = world.getTileEntity(target.blockX, target.blockY, target.blockZ);
 			//...From my mod
 			if (tileEntity instanceof BaseRobotPlatesTileEntity) {
-				//TODO: Recalculate the vector used to intersect the block so I can be more accurate with subblock detection.
+				//TODO: Recalculate the vector used to intersect the block so I can be more accurate with SubBlock detection.
 				BaseRobotPlatesTileEntity rpTileEntity = (BaseRobotPlatesTileEntity)tileEntity;
 				Vec3 targetBlockVec = Vec3.createVectorHelper(target.blockX, target.blockY, target.blockZ);
 				Vec3 vec = targetBlockVec.subtract(target.hitVec);
