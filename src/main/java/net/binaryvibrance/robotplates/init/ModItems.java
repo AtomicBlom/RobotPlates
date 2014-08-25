@@ -6,6 +6,7 @@ import net.binaryvibrance.robotplates.item.*;
 public final class ModItems {
 	//Components
 	public static final ItemComponentContainer COMPONENT_CONTAINER = new ItemComponentContainer();
+	public static final ItemComponentEvent COMPONENT_EVENT = new ItemComponentEvent();
 
 	//Tools
 	public static final BaseRobotPlateItem TOOL_REMOTE_DEBUGGER = new ItemToolRemoteDebugger();
@@ -19,6 +20,7 @@ public final class ModItems {
 
 	public static void init() {
 		GameRegistry.registerItem(COMPONENT_CONTAINER, "componentContainer");
+		GameRegistry.registerItem(COMPONENT_EVENT, "componentEvent");
 
 		GameRegistry.registerItem(TOOL_REMOTE_DEBUGGER, "remoteDebugger");
 		GameRegistry.registerItem(TOOL_SOLDERING_IRON, "toolSolderingIron");

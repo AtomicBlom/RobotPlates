@@ -17,6 +17,8 @@ public class Textures {
 
 		//Components
 		public static final ResourceLocation COMPONENT_CONTAINER = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelComponentContainer.png");
+		public static final ResourceLocation COMPONENT_EVENT = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelComponentEvent.png");
+		public static final ResourceLocation COMPONENT_EVENT_TICK =  new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelComponentEventTick.png");
 
 		//Tools
 		public static final ResourceLocation TOOL_REMOTE_DEBUGGER = new ResourceLocation(Reference.MOD_ID, MODEL_TEXTURE_LOCATION + "modelToolRemoteDebugger.png");

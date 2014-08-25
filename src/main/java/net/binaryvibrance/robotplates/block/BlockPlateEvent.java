@@ -34,4 +34,6 @@ public class BlockPlateEvent extends BaseRobotPlateBlock implements ITileEntityP
 	public TileEntity createNewTileEntity(World world, int metaData) {
 		return new TileEntityPlateEvent();
 	}
+
+
 }

@@ -4,6 +4,8 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.eventhandler.EventBus;
 import net.binaryvibrance.robotplates.client.handler.DrawBlockHighlightEventHandler;
+import net.binaryvibrance.robotplates.client.renderer.ComponentRegistry;
+import net.binaryvibrance.robotplates.client.renderer.component.ComponentRendererEvent;
 import net.binaryvibrance.robotplates.client.renderer.entity.EntityRendererRobotBob;
 import net.binaryvibrance.robotplates.client.renderer.item.*;
 import net.binaryvibrance.robotplates.client.renderer.tileentity.*;
@@ -35,6 +37,8 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.plateProgrammer), new ItemRendererPlateProgrammer());
 		//Containers
 		MinecraftForgeClient.registerItemRenderer(ModItems.COMPONENT_CONTAINER, new ItemRendererComponentContainer());
+		//Components
+		MinecraftForgeClient.registerItemRenderer(ModItems.COMPONENT_EVENT, new ItemRendererComponentEvent());
 		//Robots
 		MinecraftForgeClient.registerItemRenderer(ModItems.ROBOT, new ItemRendererRobotBob());
 		//Tools
@@ -47,6 +51,9 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlateConditional.class, new TileEntityRendererPlateConditional());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlateEvent.class, new TileEntityRendererPlateEvent());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlateProgrammer.class, new TileEntityRendererPlateProgrammer());
+
+		//Components
+		ComponentRegistry.registerComponentRenderer(ModItems.COMPONENT_EVENT, new ComponentRendererEvent());
 
 		//Entity Renderer
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobotBaseBob.class, new EntityRendererRobotBob());

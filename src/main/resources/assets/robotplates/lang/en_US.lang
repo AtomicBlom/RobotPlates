@@ -1,5 +1,6 @@
 #Items
 item.robotplates:componentContainer.name=Container
+item.robotplates:componentEvent.name=Event Component
 
 item.robotplates:toolRemoteDebugger.name=Remote Debugger
 item.robotplates:toolSolderingIron.name=Soldering Iron

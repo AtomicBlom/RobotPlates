@@ -7,6 +7,7 @@ public final class Models {
 
 	//Components
 	public static final ResourceLocation COMPONENT_CONTAINER = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelComponentContainer.obj");
+	public static final ResourceLocation COMPONENT_EVENT = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelComponentEvent.obj");
 
 	//Plates
 	public static final ResourceLocation PLATE_ACTION = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelPlateAction.obj");
@@ -21,6 +22,7 @@ public final class Models {
 	//Tools
 	public static final ResourceLocation TOOL_REMOTE_DEBUGGER = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelToolRemoteDebugger.obj");
 	public static final ResourceLocation TOOL_SOLDERING_IRON = new ResourceLocation(Reference.MOD_ID, MODEL_LOCATION + "modelToolSolderingIron.obj");
+
 
 	private Models() {
 	}
