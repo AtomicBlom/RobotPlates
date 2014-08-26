@@ -58,6 +58,7 @@ public class ItemRendererComponentEvent implements IItemRenderer {
 	}
 
 	private void render() {
+		GL11.glScalef(1/16f, 1/16f, 1/16f);
 		TextureManager renderEngine = FMLClientHandler.instance().getClient().renderEngine;
 		renderEngine.bindTexture(Textures.Model.COMPONENT_EVENT);
 		model.render();
