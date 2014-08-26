@@ -20,6 +20,7 @@ public class ItemComponentEvent extends BaseRobotPlateItem {
 		if (!(hitTileEntity instanceof TileEntityPlateEvent)) return false;
 
 		TileEntityPlateEvent eventPlate = (TileEntityPlateEvent)hitTileEntity;
+		if (eventPlate.getEventType() != null) return false;
 		eventPlate.setEvent(stack);
 
 		if (!player.capabilities.isCreativeMode) {

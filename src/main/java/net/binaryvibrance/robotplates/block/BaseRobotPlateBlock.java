@@ -5,7 +5,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.binaryvibrance.robotplates.creativetab.CreativeTabRobotPlate;
 import net.binaryvibrance.robotplates.reference.Reference;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
 import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -52,6 +50,7 @@ public class BaseRobotPlateBlock extends Block {
 			BaseRobotPlatesTileEntity rpTileEntity = (BaseRobotPlatesTileEntity)tileEntity;
 			//Update neighbours.
 			rpTileEntity.checkUpdate(true);
+			rpTileEntity.onBroken();
 		}
 		dropInventory(world, x, y, z);
 		super.breakBlock(world, x, y, z, block, meta);

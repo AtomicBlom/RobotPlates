@@ -1,16 +1,19 @@
 package net.binaryvibrance.robotplates.client.renderer;
 
 import com.google.common.collect.Maps;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.IItemRenderer;
+import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
 
 import java.util.IdentityHashMap;
 
 public class ComponentRegistry {
-	private static IdentityHashMap<Item, IComponentRenderer> componentRenderers = Maps.newIdentityHashMap();
+	private static IdentityHashMap<TileEntityPlateEvent.EventType, IComponentRenderer> componentRenderers = Maps.newIdentityHashMap();
 
-	public static void registerComponentRenderer(Item item, IComponentRenderer renderer)
+	public static void registerComponentRenderer(TileEntityPlateEvent.EventType eventType, IComponentRenderer renderer)
 	{
-		componentRenderers.put(item, renderer);
+		componentRenderers.put(eventType, renderer);
+	}
+
+	public static IComponentRenderer getEventComponentRenderer(TileEntityPlateEvent.EventType eventType) {
+		return componentRenderers.get(eventType);
 	}
 }

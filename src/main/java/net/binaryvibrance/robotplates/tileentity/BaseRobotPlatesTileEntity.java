@@ -5,8 +5,6 @@ import net.binaryvibrance.robotplates.init.ModPackets;
 import net.binaryvibrance.robotplates.network.RobotPlatesTileEntityMessage;
 import net.binaryvibrance.robotplates.reference.Names;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
-import net.binaryvibrance.robotplates.utility.IDebugReloadable;
-import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.Packet;
@@ -166,5 +164,9 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 
 	public boolean onActivated(World world, int x, int y, int z, EntityPlayer player, int side, float px, float py, float pz) {
 		return false;
+	}
+
+	public void onBroken() {
+
 	}
 }

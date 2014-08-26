@@ -53,7 +53,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlateProgrammer.class, new TileEntityRendererPlateProgrammer());
 
 		//Components
-		ComponentRegistry.registerComponentRenderer(ModItems.COMPONENT_EVENT, new ComponentRendererEvent());
+		ComponentRegistry.registerComponentRenderer(TileEntityPlateEvent.EventType.TICK, new ComponentRendererEvent());
 
 		//Entity Renderer
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobotBaseBob.class, new EntityRendererRobotBob());
