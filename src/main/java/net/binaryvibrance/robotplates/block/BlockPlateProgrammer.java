@@ -2,12 +2,9 @@ package net.binaryvibrance.robotplates.block;
 
 import net.binaryvibrance.robotplates.reference.RenderIds;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateProgrammer;
-import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class BlockPlateProgrammer extends BaseRobotPlateBlock implements ITileEntityProvider {

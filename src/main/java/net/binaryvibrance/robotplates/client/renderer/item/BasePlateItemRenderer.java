@@ -2,7 +2,6 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.binaryvibrance.robotplates.client.model.BaseModelPlate;
-import net.binaryvibrance.robotplates.client.model.ModelPlateEvent;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;

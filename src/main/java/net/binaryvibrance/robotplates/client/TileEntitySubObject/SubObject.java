@@ -1,7 +1,5 @@
 package net.binaryvibrance.robotplates.client.TileEntitySubObject;
 
-import ibxm.Player;
-import net.binaryvibrance.robotplates.entity.BaseRobotPlatesEntity;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderGlobal;

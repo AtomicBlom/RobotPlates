@@ -3,7 +3,6 @@ package net.binaryvibrance.robotplates.client.renderer.item;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.binaryvibrance.robotplates.client.model.ModelComponentContainer;
 import net.binaryvibrance.robotplates.client.model.ModelComponentEvent;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.minecraft.client.renderer.texture.TextureManager;

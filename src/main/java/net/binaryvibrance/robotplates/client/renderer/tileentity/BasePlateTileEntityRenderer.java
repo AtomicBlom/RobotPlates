@@ -3,15 +3,11 @@ package net.binaryvibrance.robotplates.client.renderer.tileentity;
 import net.binaryvibrance.robotplates.client.model.BaseModelPlate;
 import net.binaryvibrance.robotplates.reference.Textures;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 import org.lwjgl.opengl.GL11;
-
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 public abstract class BasePlateTileEntityRenderer<T extends BaseRobotPlatesTileEntity> extends TileEntitySpecialRenderer {
 	protected final BaseModelPlate model;

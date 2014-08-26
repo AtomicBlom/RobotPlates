@@ -1,9 +1,6 @@
 package net.binaryvibrance.robotplates.client.model;
 
 import net.binaryvibrance.robotplates.reference.Models;
-import net.binaryvibrance.robotplates.utility.IDebugReloadable;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
 
 public class ModelPlateConditional extends BaseModelPlate {
 	private static ModelPlateConditional instance;
