@@ -23,6 +23,8 @@ public class TileEntityRendererPlateEvent extends BasePlateTileEntityRenderer<Ti
 		}
 
 		IComponentRenderer eventComponentRenderer = ComponentRegistry.getEventComponentRenderer(eventType);
-		eventComponentRenderer.render(eventType);
+		if (eventComponentRenderer != null) {
+			eventComponentRenderer.render(eventType);
+		}
 	}
 }

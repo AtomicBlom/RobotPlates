@@ -2,7 +2,7 @@ package net.binaryvibrance.robotplates.tileentity;
 
 import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
 import net.binaryvibrance.robotplates.init.ModPackets;
-import net.binaryvibrance.robotplates.network.RobotPlatesTileEntityMessage;
+import net.binaryvibrance.robotplates.network.BaseMessagePlateUpdated;
 import net.binaryvibrance.robotplates.reference.Names;
 import net.binaryvibrance.robotplates.utility.CompassDirection;
 import net.minecraft.entity.player.EntityPlayer;
@@ -88,6 +88,13 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 		if (nbtTagCompound.hasKey(Names.NBT.OWNER)) {
 			this.owner = nbtTagCompound.getString(Names.NBT.OWNER);
 		}
+
+		if (nbtTagCompound.hasKey(Names.NBT.ACTIVE_SIGNALS)) {
+			byte[] activeSignals = nbtTagCompound.getByteArray(Names.NBT.ACTIVE_SIGNALS);
+			for (int i = 0; i < activeSignals.length; ++i) {
+				this.activeSignals[i] = activeSignals[i] == 1;
+			}
+		}
 	}
 
 	@Override
@@ -104,6 +111,12 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 		if (this.hasOwner()) {
 			nbtTagCompound.setString(Names.NBT.OWNER, owner);
 		}
+
+		byte[] activeSignals = new byte[this.activeSignals.length];
+		for (int i = 0; i < this.activeSignals.length; i++) {
+			activeSignals[i] = this.activeSignals[i] ? (byte)1 : 0;
+		}
+		nbtTagCompound.setByteArray(Names.NBT.ACTIVE_SIGNALS, activeSignals);
 	}
 
 	public boolean hasCustomName() {
@@ -116,7 +129,7 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 
 	@Override
 	public Packet getDescriptionPacket() {
-		return ModPackets.NETWORK.getPacketFrom(new RobotPlatesTileEntityMessage(this));
+		return ModPackets.NETWORK.getPacketFrom(new BaseMessagePlateUpdated(this));
 	}
 
 	public void checkUpdate(BaseRobotPlatesTileEntity neighbour, CompassDirection directionToNeighbour) {

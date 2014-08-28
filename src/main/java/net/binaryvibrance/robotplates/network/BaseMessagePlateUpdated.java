@@ -8,19 +8,52 @@ import io.netty.buffer.ByteBuf;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<RobotPlatesTileEntityMessage, IMessage> {
+public class BaseMessagePlateUpdated implements IMessage {
 	private int x, y, z;
 	private byte orientation, state;
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getZ() {
+		return z;
+	}
+
+	public byte getOrientation() {
+		return orientation;
+	}
+
+	public byte getState() {
+		return state;
+	}
+
+	public String getCustomName() {
+		return customName;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public boolean[] getActiveSignals() {
+		return activeSignals;
+	}
+
 	private String customName, owner;
 	private boolean[] activeSignals;
 
 	@SuppressWarnings("UnusedDeclaration")
-	public RobotPlatesTileEntityMessage() {
+	public BaseMessagePlateUpdated() {
 		activeSignals = new boolean[4];
 	}
 
 	@SuppressWarnings("UnusedDeclaration")
-	public RobotPlatesTileEntityMessage(BaseRobotPlatesTileEntity rpTileEntity) {
+	public BaseMessagePlateUpdated(BaseRobotPlatesTileEntity rpTileEntity) {
 		this.x = rpTileEntity.xCoord;
 		this.y = rpTileEntity.yCoord;
 		this.z = rpTileEntity.zCoord;
@@ -67,27 +100,8 @@ public class RobotPlatesTileEntityMessage implements IMessage, IMessageHandler<R
 	}
 
 	@Override
-	public IMessage onMessage(RobotPlatesTileEntityMessage message, MessageContext ctx) {
-		TileEntity untypedTileEntity = FMLClientHandler.instance().getClient().theWorld.getTileEntity(message.x, message.y, message.z);
-
-		if (untypedTileEntity instanceof BaseRobotPlatesTileEntity) {
-
-			BaseRobotPlatesTileEntity tileEntity = (BaseRobotPlatesTileEntity) untypedTileEntity;
-			tileEntity.setOrientation(message.orientation);
-			tileEntity.setState(message.state);
-			tileEntity.setCustomName(message.customName);
-			tileEntity.setOwner(message.owner);
-			for (int i = 0; i < activeSignals.length; ++i) {
-				tileEntity.activeSignals[i] = message.activeSignals[i];
-			}
-		}
-
-		return null;
-	}
-
-	@Override
 	public String toString() {
-		return String.format("TileEntityRobotPlates - x:%s, y:%s, z:%s, orientation:%s, state:%s, customName:%s, owner:%s", x, y, z, orientation, state, customName, owner);
+		return String.format("%s - x:%s, y:%s, z:%s, orientation:%s, state:%s, customName:%s, owner:%s", this.getClass().getSimpleName(), x, y, z, orientation, state, customName, owner);
 	}
 
 }

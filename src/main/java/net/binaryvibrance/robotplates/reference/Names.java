@@ -14,5 +14,7 @@ public final class Names {
 		public static final String CUSTOM_NAME = "customName";
 		public static final String STATE = "tileEntityState";
 		public static final String DIRECTION = "direction";
+		public static final String ACTIVE_SIGNALS = "activeSignals";
+		public static final String INSTALLED_COMPONENT = "installedComponent";
 	}
 }
