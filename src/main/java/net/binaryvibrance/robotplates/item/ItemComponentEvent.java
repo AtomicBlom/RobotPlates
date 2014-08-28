@@ -16,7 +16,6 @@ public class ItemComponentEvent extends BaseRobotPlateItem {
 
 	@Override
 	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-		LogHelper.info("onItemUseFirst triggered on %s", world.isRemote ? "Client" : "Server");
 		if (world.isRemote) return false;
 
 		TileEntity hitTileEntity = world.getTileEntity(x, y, z);

@@ -10,7 +10,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class BaseMessagePlateUpdated implements IMessage {
 	private int x, y, z;
-	private byte orientation, state;
+	private byte state;
 
 	public int getX() {
 		return x;
@@ -24,11 +24,7 @@ public class BaseMessagePlateUpdated implements IMessage {
 		return z;
 	}
 
-	public byte getOrientation() {
-		return orientation;
-	}
-
-	public byte getState() {
+ 	public byte getState() {
 		return state;
 	}
 
@@ -57,7 +53,6 @@ public class BaseMessagePlateUpdated implements IMessage {
 		this.x = rpTileEntity.xCoord;
 		this.y = rpTileEntity.yCoord;
 		this.z = rpTileEntity.zCoord;
-		this.orientation = (byte) rpTileEntity.getOrientation().ordinal();
 		this.state = (byte) rpTileEntity.getState();
 		this.customName = rpTileEntity.getCustomName();
 		this.owner = rpTileEntity.getOwner();
@@ -72,7 +67,6 @@ public class BaseMessagePlateUpdated implements IMessage {
 		this.x = buf.readInt();
 		this.y = buf.readInt();
 		this.z = buf.readInt();
-		this.orientation = buf.readByte();
 		this.state = buf.readByte();
 		int customNameLength = buf.readInt();
 		this.customName = new String(buf.readBytes(customNameLength).array());
@@ -88,7 +82,6 @@ public class BaseMessagePlateUpdated implements IMessage {
 		buf.writeInt(x);
 		buf.writeInt(y);
 		buf.writeInt(z);
-		buf.writeByte(orientation);
 		buf.writeByte(state);
 		buf.writeInt(customName.length());
 		buf.writeBytes(customName.getBytes());
@@ -101,7 +94,7 @@ public class BaseMessagePlateUpdated implements IMessage {
 
 	@Override
 	public String toString() {
-		return String.format("%s - x:%s, y:%s, z:%s, orientation:%s, state:%s, customName:%s, owner:%s", this.getClass().getSimpleName(), x, y, z, orientation, state, customName, owner);
+		return String.format("%s - x:%s, y:%s, z:%s, state:%s, customName:%s, owner:%s", this.getClass().getSimpleName(), x, y, z, state, customName, owner);
 	}
 
 }

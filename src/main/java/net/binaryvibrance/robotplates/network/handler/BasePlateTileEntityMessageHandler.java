@@ -9,7 +9,7 @@ import net.minecraft.client.multiplayer.WorldClient;
 
 public abstract class BasePlateTileEntityMessageHandler<TTileEntity extends BaseRobotPlatesTileEntity, TMessage extends BaseMessagePlateUpdated> {
 	public IMessage onMessage(TMessage message) {
-		LogHelper.info("Received Message" + message);
+		LogHelper.debug("Received Message" + message);
 		WorldClient world = FMLClientHandler.instance().getClient().theWorld;
 		TTileEntity tileEntity = null;
 		try {
@@ -21,7 +21,6 @@ public abstract class BasePlateTileEntityMessageHandler<TTileEntity extends Base
 			return null;
 		}
 
-		tileEntity.setOrientation(message.getOrientation());
 		tileEntity.setState(message.getState());
 		tileEntity.setCustomName(message.getCustomName());
 		tileEntity.setOwner(message.getOwner());

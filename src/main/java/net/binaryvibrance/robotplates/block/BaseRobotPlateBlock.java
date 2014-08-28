@@ -73,28 +73,11 @@ public class BaseRobotPlateBlock extends Block {
 		TileEntity tileEntity = world.getTileEntity(x, y, z);
 		if (tileEntity instanceof BaseRobotPlatesTileEntity) {
 			BaseRobotPlatesTileEntity rpTileEntity = (BaseRobotPlatesTileEntity)tileEntity;
-			int direction = 0;
-			int facing = MathHelper.floor_double((entityLiving.rotationYaw + 180.0f) * 4.0F / 360.0F + 0.5D) & 3;
-
-			if (facing == 0) {
-				LogHelper.info("Block facing North");
-				direction = ForgeDirection.NORTH.ordinal();
-			} else if (facing == 1) {
-				LogHelper.info("Block facing East");
-				direction = ForgeDirection.EAST.ordinal();
-			} else if (facing == 2) {
-				LogHelper.info("Block facing South");
-				direction = ForgeDirection.SOUTH.ordinal();
-			} else if (facing == 3) {
-				LogHelper.info("Block facing West");
-				direction = ForgeDirection.WEST.ordinal();
-			}
 
 			if (itemStack.hasDisplayName()) {
 				rpTileEntity.setCustomName(itemStack.getDisplayName());
 			}
 
-			//rpTileEntity.setOrientation(direction);
 			rpTileEntity.checkUpdate(false);
 		}
 	}

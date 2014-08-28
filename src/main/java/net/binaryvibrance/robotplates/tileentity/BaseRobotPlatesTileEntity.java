@@ -14,7 +14,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class BaseRobotPlatesTileEntity extends TileEntity {
-	protected ForgeDirection orientation;
 	protected byte state;
 	protected String customName;
 	protected String owner;
@@ -22,7 +21,6 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 	public boolean[] activeSignals = new boolean[4];
 
 	BaseRobotPlatesTileEntity() {
-		orientation = ForgeDirection.NORTH;
 		state = 0;
 		customName = "";
 		owner = "";
@@ -30,18 +28,6 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 
 	protected SubObject[] getSubObjects() {
 		return new SubObject[0];
-	}
-
-	public ForgeDirection getOrientation() {
-		return orientation;
-	}
-
-	public void setOrientation(int orientation) {
-		this.orientation = ForgeDirection.getOrientation(orientation);
-	}
-
-	public void setOrientation(ForgeDirection orientation) {
-		this.orientation = orientation;
 	}
 
 	public short getState() {
@@ -72,11 +58,6 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 	public void readFromNBT(NBTTagCompound nbtTagCompound) {
 		super.readFromNBT(nbtTagCompound);
 
-		if (nbtTagCompound.hasKey(Names.NBT.DIRECTION)) {
-			byte aByte = nbtTagCompound.getByte(Names.NBT.DIRECTION);
-			this.orientation = ForgeDirection.getOrientation(aByte);
-		}
-
 		if (nbtTagCompound.hasKey(Names.NBT.STATE)) {
 			this.state = nbtTagCompound.getByte(Names.NBT.STATE);
 		}
@@ -101,7 +82,6 @@ public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 	public void writeToNBT(NBTTagCompound nbtTagCompound) {
 		super.writeToNBT(nbtTagCompound);
 
-		nbtTagCompound.setByte(Names.NBT.DIRECTION, (byte) orientation.ordinal());
 		nbtTagCompound.setByte(Names.NBT.STATE, state);
 
 		if (this.hasCustomName()) {

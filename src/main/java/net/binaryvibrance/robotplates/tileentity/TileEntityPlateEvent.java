@@ -14,26 +14,10 @@ import net.minecraft.network.Packet;
 import java.util.Random;
 
 public class TileEntityPlateEvent extends BaseRobotPlatesTileEntity {
-	//private ItemStack event;
 	private EventType eventType = EventType.NONE;
-
-	/*public void setEvent(ItemStack event) {
-		LogHelper.info("setEvent triggered on %s", worldObj.isRemote ? "Client" : "Server");
-		this.event = event;
-		NBTTagCompound tag = event.getTagCompound();
-		EventType eventType = EventType.TICK;
-		if (tag != null && tag.hasKey("Type")) {
-			int typeOrdinal = tag.getInteger("Type");
-			if (typeOrdinal < EventType.values().length) {
-				eventType = EventType.values()[typeOrdinal];
-			}
-		}
-		this.eventType = eventType;
-	}*/
 
 	@Override
 	public void onBroken() {
-		LogHelper.info("onBroken triggered on %s", worldObj.isRemote ? "Client" : "Server");
 		if (eventType != null && eventType != EventType.NONE) {
 			Random rand = new Random();
 			ItemStack itemStack = new ItemStack(ModItems.COMPONENT_EVENT);
