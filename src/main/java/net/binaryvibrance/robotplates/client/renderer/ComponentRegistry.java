@@ -1,19 +1,19 @@
 package net.binaryvibrance.robotplates.client.renderer;
 
 import com.google.common.collect.Maps;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 
 import java.util.IdentityHashMap;
 
 public class ComponentRegistry {
-	private static IdentityHashMap<TileEntityPlateEvent.EventType, IComponentRenderer> componentRenderers = Maps.newIdentityHashMap();
+	private static IdentityHashMap<EventPlateComponent, IComponentRenderer> componentRenderers = Maps.newIdentityHashMap();
 
-	public static void registerComponentRenderer(TileEntityPlateEvent.EventType eventType, IComponentRenderer renderer)
+	public static void registerComponentRenderer(EventPlateComponent installedComponent, IComponentRenderer renderer)
 	{
-		componentRenderers.put(eventType, renderer);
+		componentRenderers.put(installedComponent, renderer);
 	}
 
-	public static IComponentRenderer getEventComponentRenderer(TileEntityPlateEvent.EventType eventType) {
-		return componentRenderers.get(eventType);
+	public static IComponentRenderer getEventComponentRenderer(EventPlateComponent installedComponent) {
+		return componentRenderers.get(installedComponent);
 	}
 }

@@ -5,7 +5,6 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import net.binaryvibrance.robotplates.network.MessagePlateUpdatedEvent;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
-import net.binaryvibrance.robotplates.utility.LogHelper;
 
 public class EventPlateTileEntityMessageHandler extends BasePlateTileEntityMessageHandler<TileEntityPlateEvent, MessagePlateUpdatedEvent> implements IMessageHandler<MessagePlateUpdatedEvent, IMessage> {
 	public EventPlateTileEntityMessageHandler() {
@@ -19,7 +18,7 @@ public class EventPlateTileEntityMessageHandler extends BasePlateTileEntityMessa
 
 	@Override
 	protected IMessage processMessage(MessagePlateUpdatedEvent messagePlateUpdatedEvent, TileEntityPlateEvent tileEntity) {
-		tileEntity.setEventType(messagePlateUpdatedEvent.getEventType());
+		tileEntity.setInstalledComponent(messagePlateUpdatedEvent.getInstalledComponent());
 		return null;
 	}
 }

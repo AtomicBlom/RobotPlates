@@ -1,7 +1,7 @@
 package net.binaryvibrance.robotplates.item;
 
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
-import net.binaryvibrance.robotplates.utility.LogHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -22,18 +22,18 @@ public class ItemComponentEvent extends BaseRobotPlateItem {
 		if (!(hitTileEntity instanceof TileEntityPlateEvent)) return false;
 
 		TileEntityPlateEvent eventPlate = (TileEntityPlateEvent)hitTileEntity;
-		if (eventPlate.getEventType() != TileEntityPlateEvent.EventType.NONE) return false;
+		if (eventPlate.getInstalledComponent() != EventPlateComponent.NONE) return false;
 
 		NBTTagCompound tag = stack.getTagCompound();
-		TileEntityPlateEvent.EventType eventType = TileEntityPlateEvent.EventType.TICK;
+		EventPlateComponent installedComponent = EventPlateComponent.TICK;
 		if (tag != null && tag.hasKey("Type")) {
 			int typeOrdinal = tag.getInteger("Type");
-			if (typeOrdinal < TileEntityPlateEvent.EventType.values().length) {
-				eventType = TileEntityPlateEvent.EventType.values()[typeOrdinal];
+			if (typeOrdinal < EventPlateComponent.values().length) {
+				installedComponent = EventPlateComponent.values()[typeOrdinal];
 			}
 		}
 
-		eventPlate.setEventType(eventType);
+		eventPlate.setInstalledComponent(installedComponent);
 
 		if (!player.capabilities.isCreativeMode) {
 			stack.stackSize--;

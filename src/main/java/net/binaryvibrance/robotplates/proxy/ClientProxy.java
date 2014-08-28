@@ -9,6 +9,7 @@ import net.binaryvibrance.robotplates.client.renderer.component.ComponentRendere
 import net.binaryvibrance.robotplates.client.renderer.entity.EntityRendererRobotBob;
 import net.binaryvibrance.robotplates.client.renderer.item.*;
 import net.binaryvibrance.robotplates.client.renderer.tileentity.*;
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 import net.binaryvibrance.robotplates.entity.robot.EntityRobotBaseBob;
 import net.binaryvibrance.robotplates.init.ModBlocks;
 import net.binaryvibrance.robotplates.init.ModItems;
@@ -53,7 +54,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPlateProgrammer.class, new TileEntityRendererPlateProgrammer());
 
 		//Components
-		ComponentRegistry.registerComponentRenderer(TileEntityPlateEvent.EventType.TICK, new ComponentRendererEvent());
+		ComponentRegistry.registerComponentRenderer(EventPlateComponent.TICK, new ComponentRendererEvent());
 
 		//Entity Renderer
 		RenderingRegistry.registerEntityRenderingHandler(EntityRobotBaseBob.class, new EntityRendererRobotBob());

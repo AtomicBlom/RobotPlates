@@ -1,7 +1,7 @@
 package net.binaryvibrance.robotplates.client.renderer;
 
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 
 public interface IComponentRenderer {
-	void render(TileEntityPlateEvent.EventType eventType);
+	void render(EventPlateComponent installedComponent);
 }

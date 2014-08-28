@@ -1,16 +1,11 @@
 package net.binaryvibrance.robotplates.network;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
-import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import io.netty.buffer.ByteBuf;
-import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
-import net.minecraft.tileentity.TileEntity;
 
 public class MessagePlateUpdatedEvent extends BaseMessagePlateUpdated {
-	private TileEntityPlateEvent.EventType eventType;
+	private EventPlateComponent installedComponent;
 
 	@SuppressWarnings("UnusedDeclaration")
 	public MessagePlateUpdatedEvent() {
@@ -20,27 +15,27 @@ public class MessagePlateUpdatedEvent extends BaseMessagePlateUpdated {
 	@SuppressWarnings("UnusedDeclaration")
 	public MessagePlateUpdatedEvent(TileEntityPlateEvent eventPlateTileEntity) {
 		super(eventPlateTileEntity);
-		this.eventType = eventPlateTileEntity.getEventType();
+		this.installedComponent = eventPlateTileEntity.getInstalledComponent();
 	}
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		super.fromBytes(buf);
-		this.eventType = TileEntityPlateEvent.EventType.values()[buf.readInt()];
+		this.installedComponent = EventPlateComponent.values()[buf.readInt()];
 	}
 
 	@Override
 	public void toBytes(ByteBuf buf) {
 		super.toBytes(buf);
-		buf.writeInt(this.eventType.ordinal());
+		buf.writeInt(this.installedComponent.ordinal());
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s, eventType:%s", super.toString(), eventType);
+		return String.format("%s, eventType:%s", super.toString(), installedComponent);
 	}
 
-	public TileEntityPlateEvent.EventType getEventType() {
-		return eventType;
+	public EventPlateComponent getInstalledComponent() {
+		return installedComponent;
 	}
 }

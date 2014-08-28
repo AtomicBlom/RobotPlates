@@ -3,8 +3,8 @@ package net.binaryvibrance.robotplates.client.renderer.component;
 import cpw.mods.fml.client.FMLClientHandler;
 import net.binaryvibrance.robotplates.client.model.ModelComponentEvent;
 import net.binaryvibrance.robotplates.client.renderer.IComponentRenderer;
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 import net.binaryvibrance.robotplates.reference.Textures;
-import net.binaryvibrance.robotplates.tileentity.TileEntityPlateEvent;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
 
@@ -16,18 +16,18 @@ public class ComponentRendererEvent implements IComponentRenderer {
 	}
 
 	@Override
-	public void render(TileEntityPlateEvent.EventType eventType) {
+	public void render(EventPlateComponent installedComponent) {
 		TextureManager renderEngine = FMLClientHandler.instance().getClient().renderEngine;
 
 		renderEngine.bindTexture(Textures.Model.COMPONENT_EVENT);
 		model.render();
 
-		renderEngine.bindTexture(getTextureFor(eventType));
+		renderEngine.bindTexture(getTextureFor(installedComponent));
 		model.renderSpecialization();
 	}
 
-	private ResourceLocation getTextureFor(TileEntityPlateEvent.EventType eventType) {
-		switch (eventType) {
+	private ResourceLocation getTextureFor(EventPlateComponent installedComponent) {
+		switch (installedComponent) {
 			case TICK:
 				return Textures.Model.COMPONENT_EVENT_TICK;
 			default:

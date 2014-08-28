@@ -1,6 +1,7 @@
 package net.binaryvibrance.robotplates.tileentity;
 
 import cpw.mods.fml.common.network.NetworkRegistry;
+import net.binaryvibrance.robotplates.compiler.component.EventPlateComponent;
 import net.binaryvibrance.robotplates.init.ModItems;
 import net.binaryvibrance.robotplates.init.ModPackets;
 import net.binaryvibrance.robotplates.network.MessagePlateUpdatedEvent;
@@ -14,16 +15,16 @@ import net.minecraft.network.Packet;
 import java.util.Random;
 
 public class TileEntityPlateEvent extends BaseRobotPlatesTileEntity {
-	private EventType eventType = EventType.NONE;
+	private EventPlateComponent installedComponent = EventPlateComponent.NONE;
 
 	@Override
 	public void onBroken() {
-		if (eventType != null && eventType != EventType.NONE) {
+		if (installedComponent != null && installedComponent != EventPlateComponent.NONE) {
 			Random rand = new Random();
 			ItemStack itemStack = new ItemStack(ModItems.COMPONENT_EVENT);
 
 			NBTTagCompound tagCompound = new NBTTagCompound();
-			tagCompound.setInteger("Type", eventType.ordinal());
+			tagCompound.setInteger("Type", installedComponent.ordinal());
 			itemStack.setTagCompound(tagCompound);
 
 			EntityItem entityItem = new EntityItem(this.worldObj, xCoord, yCoord, zCoord, itemStack.copy());
@@ -38,13 +39,13 @@ public class TileEntityPlateEvent extends BaseRobotPlatesTileEntity {
 		}
 	}
 
-	public EventType getEventType() {
-		return eventType;
+	public EventPlateComponent getInstalledComponent() {
+		return installedComponent;
 	}
 
-	public void setEventType(EventType eventType) {
-		if (this.eventType != eventType) {
-			this.eventType = eventType;
+	public void setInstalledComponent(EventPlateComponent installedComponent) {
+		if (this.installedComponent != installedComponent) {
+			this.installedComponent = installedComponent;
 
 			this.markDirty();
 			this.worldObj.addBlockEvent(this.xCoord, this.yCoord, this.zCoord, this.getBlockType(), 1, this.state);
@@ -57,14 +58,14 @@ public class TileEntityPlateEvent extends BaseRobotPlatesTileEntity {
 	public void readFromNBT(NBTTagCompound nbtTagCompound) {
 		super.readFromNBT(nbtTagCompound);
 		if (nbtTagCompound.hasKey(Names.NBT.INSTALLED_COMPONENT)) {
-			eventType = EventType.values()[nbtTagCompound.getInteger(Names.NBT.INSTALLED_COMPONENT)];
+			installedComponent = EventPlateComponent.values()[nbtTagCompound.getInteger(Names.NBT.INSTALLED_COMPONENT)];
 		}
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbtTagCompound) {
 		super.writeToNBT(nbtTagCompound);
-		nbtTagCompound.setInteger(Names.NBT.INSTALLED_COMPONENT, eventType.ordinal());
+		nbtTagCompound.setInteger(Names.NBT.INSTALLED_COMPONENT, installedComponent.ordinal());
 	}
 
 	@Override
@@ -75,8 +76,4 @@ public class TileEntityPlateEvent extends BaseRobotPlatesTileEntity {
 		return ModPackets.NETWORK.getPacketFrom(message);
 	}
 
-	public enum EventType {
-		NONE,
-		TICK
-	}
 }
