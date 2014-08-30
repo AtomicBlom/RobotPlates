@@ -1,7 +1,7 @@
 package net.binaryvibrance.robotplates.client.handler;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
+import net.binaryvibrance.robotplates.utility.subobject.SubObject;
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MovingObjectPosition;

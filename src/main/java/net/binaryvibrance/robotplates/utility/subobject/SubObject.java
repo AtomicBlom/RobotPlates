@@ -1,4 +1,4 @@
-package net.binaryvibrance.robotplates.client.TileEntitySubObject;
+package net.binaryvibrance.robotplates.utility.subobject;
 
 import net.binaryvibrance.robotplates.tileentity.BaseRobotPlatesTileEntity;
 import net.minecraft.client.renderer.OpenGlHelper;

@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.tileentity;
 
-import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
+import net.binaryvibrance.robotplates.utility.subobject.SubObject;
 import net.binaryvibrance.robotplates.init.ModSubObjects;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;

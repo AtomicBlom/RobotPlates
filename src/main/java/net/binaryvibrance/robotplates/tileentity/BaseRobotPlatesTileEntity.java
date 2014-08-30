@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.tileentity;
 
-import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
+import net.binaryvibrance.robotplates.utility.subobject.SubObject;
 import net.binaryvibrance.robotplates.init.ModPackets;
 import net.binaryvibrance.robotplates.network.BaseMessagePlateUpdated;
 import net.binaryvibrance.robotplates.reference.Names;
@@ -11,7 +11,6 @@ import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public abstract class BaseRobotPlatesTileEntity extends TileEntity {
 	protected byte state;

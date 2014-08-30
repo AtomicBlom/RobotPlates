@@ -1,6 +1,6 @@
 package net.binaryvibrance.robotplates.init;
 
-import net.binaryvibrance.robotplates.client.TileEntitySubObject.SubObject;
+import net.binaryvibrance.robotplates.utility.subobject.SubObject;
 import net.binaryvibrance.robotplates.utility.IDebugReloadable;
 import net.minecraft.util.AxisAlignedBB;
 
