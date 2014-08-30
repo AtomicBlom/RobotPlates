@@ -10,7 +10,7 @@ import net.minecraft.util.Facing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class ItemRobot extends Item {
+public class ItemRobot extends BaseRobotPlateItem {
 
 	public ItemRobot() {
 		super();
